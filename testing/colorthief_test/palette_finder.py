@@ -20,9 +20,9 @@ from colorsys import *
 
 ## HELPER FUNCTIONS
 
-def rgb_to_hex(tup):
+def rgb_to_hex(rgb):
 	"""
-	This function converts a tuple of integer values representing a
+	This function converts a tuple of integer values [0, 255]representing a
 	color in rgb format to hexadecimal format.
 
 	:inputs:  This function has a single input which is a tuple of
@@ -30,7 +30,7 @@ def rgb_to_hex(tup):
 	:returns: This function returns a string which is the color in
 			  hexdecimal format.
 	"""
-	hex_str = "%02x%02x%02x" % (tup[0], tup[1], tup[2])
+	hex_str = "%02x%02x%02x" % (rgb[0], rgb[1], rgb[2])
 
 	return hex_str
 
