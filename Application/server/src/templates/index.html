@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" href="#">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Flask + Firebase + Cloud Run = fire </title>
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Tangerine");
+            body {
+                font-family: 'Tangerine', cursive;
+                margin: 0;
+                padding: 0;
+            }
+            .full-screen {
+                width: 100vw;
+                min-height: 100vh;
+            }
+            .flex-center {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .text-xl {
+                font-size: 4rem;
+            }
+        </style>
+        
+    </head>
+    <body class="full-screen flex-center">
+        <h1 class="text-xl">Flask  Firebase </h1>
+        <h3>{{ context.server_time }} </h3>
+    </body>
+</html>
