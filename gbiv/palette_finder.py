@@ -20,9 +20,10 @@ from colorsys import *
 
 ## HELPER FUNCTIONS
 
+
 def rgb_to_hex(rgb):
 	"""
-	This function converts a tuple of integer values [0, 255]representing a
+	This function converts a tuple of integer values [0, 255] representing a
 	color in rgb format to hexadecimal format.
 
 	:inputs:  This function has a single input which is a tuple of
@@ -69,8 +70,6 @@ def hls_to_hex(hls):
 	hexa = rgb_to_hex(rgb)
 
 	return hexa
-
-
 
 
 ## PALETTE FUNCTIONS
@@ -178,7 +177,7 @@ def palette_generator(dom):
 
 
 def main():
-	path = "red.png"
+	path = "newRed.png"
 	(hexa, rgb) = color_extractor(path)
 	palettes = palette_generator(rgb)
 	print()
@@ -187,5 +186,5 @@ def main():
 	print("Monochromatic Down Palette: ", palettes[1])
 	print()
 
-
-main()
+if __name__ == "__main__":
+    main()
