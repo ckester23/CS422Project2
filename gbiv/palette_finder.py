@@ -177,7 +177,7 @@ def palette_generator(dom):
 
 
 def main():
-	path = "newRed.png"
+	path = "static/images/red.png"
 	(hexa, rgb) = color_extractor(path)
 	palettes = palette_generator(rgb)
 	print()

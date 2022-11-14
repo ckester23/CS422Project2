@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block header %}
-<h1>{% block title %}image upload page{% endblock %}</h1>
+<h1>{% block title %}Gbiv home/upload page{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
 	<input type=file name=file>
 	<input type=submit value=Upload>
 </form>
