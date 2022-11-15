@@ -34,7 +34,7 @@ def get_palette(path):
 # takes optional param which is a tuple of palettes
 @bp.route('/')
 def index():
-    return render_template('index.html', palettes='')
+    return render_template('index.html', palettes=None)
 
 @bp.route('/uploaded/<palettes>')
 def uploaded(palettes):

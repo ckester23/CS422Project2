@@ -20,6 +20,16 @@ from colorsys import *
 
 ## HELPER FUNCTIONS
 
+def tup_to_dict(tup):
+    #tuple to dict with index as key
+    retDict = {}
+    i = 0
+
+    for x in tup:
+        retDict[str(i)] = x
+        i += 1
+
+    return retDict
 
 def rgb_to_hex(rgb):
     """
@@ -99,7 +109,7 @@ def mono_up(hls):
     # Convert hls values to hexadecimal and format as tuple
     tup = (hls_to_hex(hls), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
 
-    return tup
+    return tup_to_dict(tup)
 
 
 def mono_down(hls):
@@ -128,7 +138,7 @@ def mono_down(hls):
     # Convert hls values to hexadecimal and format as tuple
     tup = (hls_to_hex(hls), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
 
-    return tup
+    return tup_to_dict(tup)
 
 
 
