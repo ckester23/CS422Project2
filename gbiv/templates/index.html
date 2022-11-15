@@ -5,13 +5,17 @@
 {% endblock %}
 
 {% block content %}
+{% if palettes == None %}
 <form method="POST" enctype="multipart/form-data">
 	<input type=file name=file>
 	<input type=submit value=Upload>
 </form>
+{% else %}
 <h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
 <h1>
-{% for p in palettes[1:-1] %}
+	{% for p in palettes[1:-1] %}
 	{{p}}
-{% endfor %}
+	{% endfor %}
+</h1>
+{% endif %}
 {% endblock %}
