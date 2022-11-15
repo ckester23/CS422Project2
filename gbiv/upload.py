@@ -34,11 +34,11 @@ def get_palette(path):
 # takes optional param which is a tuple of palettes
 @bp.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', palettes='')
 
 @bp.route('/uploaded/<palettes>')
 def uploaded(palettes):
-    return render_template('index.html', listofvariables=palettes)
+    return render_template('index.html', palettes=str(palettes))
 
 # upload page
 # code is run after clicking submit button

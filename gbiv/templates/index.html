@@ -9,7 +9,9 @@
 	<input type=file name=file>
 	<input type=submit value=Upload>
 </form>
+<h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
 <h1>
-<a class="action" href="{{ url_for('index') }}">home</a>
-</h1>
+{% for p in palettes[1:-1] %}
+	{{p}}
+{% endfor %}
 {% endblock %}
