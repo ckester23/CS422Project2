@@ -13,6 +13,24 @@ Web Interface
 ---------------
 
 
+Main Page (Upload an Image)
+#############################
+
+
+Popular Palettes Page
+#######################
+
+
+Color Theory Page
+##################
+
+
+About Us Page
+################
+
+
+
+
 Color Analysis
 -------------------
 
@@ -42,7 +60,23 @@ This module was designed with a high degree modularity in mind. By separating th
 Palette Database
 ------------------
 
+The purpose of the Palette Database module will be to store popular palettes that many visitors to Gbiv have looked at. This will allow users to view a range of different color combinations and get inspiration for their design projects. Because there is only one collection of elements in the database for this project, the design of the database itself is somewhat straightforward. The static model below shows the layout visually:
 
+.. figure:: images/palette_database_static.png
+   :name: palette-database-static
+   :scale: 50%
+
+   Palette Database Static Model
+
+The technology we will be using to implement our database (MongoDB) comes with a library that allows for efficient interfacing through python. Because of this built in advantage, we have designed the system so that the database has one module with which it communicates, the "Database Interpretor." This interface consists of a single type of input and a single type of output. When a user visits the "Popular Palettes" page, the frontend will query that backend which will reach the palette DB as a request to view the collection of palettes. When this query happens, the database will pass the collection on to the database interpretor module in a format that allows for easy movement to the end-users. Below we have included a dynamic model to demonstrate this interface.
+
+.. figure:: images/palette_database_dynamic.png
+   :name: palette-database-dynamic
+   :scale: 50%
+
+   Palette Database Dynamic Model
+
+The design choices for the palette database module were made with the goal of simplicity. By keeping the number of collections to a minimum and formatting all data entries identically, the organization and movement of Gbiv's data can be straightforward and efficient. This prevents database accessing from being a bottleneck for performance, as well as reduces the need for more modules for data formatting.
 
 
 Database Interpretor
