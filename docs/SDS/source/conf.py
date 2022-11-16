@@ -9,7 +9,7 @@
 project = 'Gbiv System Design Specification'
 copyright = '2022, Dux D-zine'
 author = 'Dux D-zine'
-release = '0.3'
+release = '0.5'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
