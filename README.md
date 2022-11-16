@@ -15,10 +15,14 @@ This folder contains the documentation for the Gbiv application including the pr
 
 This folder contains the flask code for running our app
 
-### Running our app locally
+
+## Running our app locally
+
+
+### setting up a python virtual environment
 
 How to setup a virtual environment with python [https://docs.python.org/3/library/venv.html#module-venv]
 
-### Installing requirements 
+### installing requirements 
 
 Activate your virtual environment then run `python3 -m pip install -r requirements.txt`
