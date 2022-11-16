@@ -10,3 +10,15 @@ Gbiv is a web application with the goal of making color theory more accessible t
 ### docs folder
 
 This folder contains the documentation for the Gbiv application including the proposal, the SRS, the SDS, user docs, and developer's manual.
+
+### gbiv folder
+
+This folder contains the flask code for running our app
+
+### Running our app locally
+
+How to setup a virtual environment with python [https://docs.python.org/3/library/venv.html#module-venv]
+
+### Installing requirements 
+
+Activate your virtual environment then run `python3 -m pip install -r requirements.txt`
