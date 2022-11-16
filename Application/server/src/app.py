@@ -1,3 +1,14 @@
+"""
+Author:               heyanne Kester
+Team:                 DUX D-Zine
+Class:                CS 422
+Professor:            Juan Flores, Kartikeya Sharma
+Date Created:         11/12/2022
+Date Last Modified:   11/15/2022
+
+Description: This initializes our flask app
+"""
+
 from flask import Flask, render_template, make_response
 import os
 
