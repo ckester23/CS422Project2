@@ -12,7 +12,7 @@ import os
 from flask import Blueprint, current_app, flash, g, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
 
-from . import palette_finder
+from . import palette_finder as pf
 
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -20,26 +20,36 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 bp = Blueprint('upload', __name__)
 
 # from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
+# non routed functions first!
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# gets palette using lib ian wrote
+def get_palette(path):
+   domColor = pf.color_extractor(path)
+   # second index yields dom
+   return pf.palette_generator(domColor[1])
+
 # landing page
+# takes optional param which is a tuple of palettes
 @bp.route('/')
 def index():
-    return render_template('upload/index.html')
+    return render_template('index.html', palettes=None)
+
+@bp.route('/uploaded/<palettes>')
+def uploaded(palettes):
+    return render_template('index.html', palettes=str(palettes))
 
 # upload page
-@bp.route('/upload', methods=['GET', 'POST'])
-def fileUpload():
-    if request.method == 'Post':
-        if 'file' not in request.files:
-            flash('file not in request')
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == '':
-            flash('no file given')
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config[UPLOAD_FOLDER], filename))
+# code is run after clicking submit button
+@bp.route('/', methods=['POST'])
+def file_upload():
+    file = request.files['file']
+    if file.filename == '':
+        flash('no file given')
+    if (file != '') and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        path = os.path.join(UPLOAD_FOLDER + filename)
+        file.save(path)
 
-    return render_template('upload/upload.html')
+    return redirect(url_for('upload.uploaded', palettes = get_palette(path))) 
