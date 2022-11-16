@@ -26,3 +26,7 @@ How to setup a virtual environment with python [https://docs.python.org/3/librar
 ### installing requirements 
 
 Activate your virtual environment then run `python3 -m pip install -r requirements.txt`
+
+### running flask app
+
+From the main project directory run `flask --app gbiv --debug run`
