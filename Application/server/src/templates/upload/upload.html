@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<h1>{% block title %}image upload page{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+	<input type=file name=file>
+	<input type=submit value=Upload>
+</form>
+<h1>
+<a class="action" href="{{ url_for('index') }}">home</a>
+</h1>
+{% endblock %}
