@@ -12,10 +12,16 @@ User Image Uploads (Input)
 The user will be able to upload an image to Gbiv in order to extract its dominant color. This is the most important input of the application because it allows users to access the main functionality which is to apply color theory to colors found in the physical world. The photo may be formatted as a .png or a .jpg file and will be restricted to a range of 0 to 99MB.
 
 
+Palette Filter Selection (Input)
+#################################
+
+Users will have the ability to filter what palettes are displayed on two separate pages of Gbiv. They can do this for generated palettes after they have uploaded an image, but also on the example palettes page. This input will have discrete and pre-defined choices which will be selected using principles of color theory. 
+
+
 Generated Palettes (Output)
 ###########################
 
-After uploading an image to be analyzed, our application will generate several palettes that contain the dominant color in the image. These palettes will be composed of 4 separate colors. Along with the visual output of these four colors, the corresponding hex codes will also be available to end-users. The output will reach the user through our frontend by way of the website UI. Palettes will be displayed as rectangles divided into 4 horizontal bars each filled with one color from the generated palette. Users will be able to view the hex codes of the colors by hovering their mouse over the palette they are interested in.
+After uploading an image to be analyzed, our application will generate several palettes that contain the dominant color in the image. These palettes will be composed of 4 separate colors and users will have the option to change what palettes are displayed by selecting from provided filter tags. Along with the visual output of these four colors, the corresponding hex codes will also be available to end-users. The output will reach the user through our frontend by way of the website UI. Palettes will be displayed as rectangles divided into 4 horizontal bars each filled with one color from the generated palette. Users will be able to view the hex codes of the colors by hovering their mouse over the palette they are interested in.
 
 
 Related Colors (Output)

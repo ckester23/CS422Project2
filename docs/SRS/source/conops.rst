@@ -25,7 +25,7 @@ Operational Features of the Proposed System
 
 The operational features of this proposed system will center around what happens after a user has uploaded an image. First a dominant color will be extracted from the photo and displayed to the user. The site will then  output several color palettes that contain this color which will be generated using principles of color theory. Simultaneously, Gbiv will suggest several individual related colors that may also be of use when making design decisions in the physical world. 
 
-Beyond this primary function, Gbiv will provide information about color theory that will help users to see the science and aesthetics behind what the application recommends. 
+Beyond this primary function, Gbiv will provide example palettes that can be sorted based on certain features of the colors such as whether the palettes are complementary, monochrome, analogous, etc. On other pages information about color theory that will help users to understand the science behind the application's palettes and suggested colors.
 
 
 User Classes
@@ -80,12 +80,13 @@ The site will now display the dominant color that has been extracted from the im
 Scenario 2
 #############
 
-**Selecting Palettes**
+**Viewing Example Palettes**
 
 
 **Brief Description:** 
 
-This use case describes how a user would go about selecting a palette after they have already uploaded an image to be analyzed by Gbiv.
+This use case describes how a user would go about viewing example palettes on Gbiv.
+
 
 **Actors:** 
 
@@ -93,18 +94,18 @@ A user
 
 **Preconditions:**
 
-1. The user must have already uploaded a valid image file
-2. Gbiv must have completed its color analysis and populated the site with related colors and suggested color palettes
+1. The user must have a browser that satisfies the requirements necessary to access the Gbiv site.
+2. The user must visit Gbiv's URL through their browser.
 
 
 **Steps to Complete the Task:**
 
-1. User must first scroll down to "Suggested Palettes" part of the page
-2. There they will find several choices of tags that they can select
-3. If the user clicks a particular tag, the palettes shown will adjust to focus on palettes that fit the selected attribute
-4. Users can see the colors' hex codes by hovering over the palette block
+1. User first will click on the "Example Palettes" tab on the navbar to go to the palettes page. When they first follow the link, the page will be populated with a default mix of the available palette examples.
+2. On the top portion of the page there will be several buttons labeled with particular tags for palettes. At the start all of them will not be selected.
+3. The user can then click the tag they wish to use to filter the examples.
+4. The page will refresh and display a different set of example palettes that match the selected tag. The user can view all of the palettes by scrolling through the page and the hex codes for the individual colors by hovering their mouse over the color blocks.
 
 
 **Postconditions**
 
-After completing this use case, users will have several palettes matching their selected attributes that contain the dominant color of the image they uploaded. They will be able to see these color combinations visually and will have the option of recording the corresponding hex codes for future use.
+After completing this use case, users will have access to several example palettes that meet their specified category requirements. They will be able to see these palettes visually and access the hex codes for each individual color if they so choose.
