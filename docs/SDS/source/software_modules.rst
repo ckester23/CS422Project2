@@ -1,34 +1,89 @@
 Software Modules
 =================
 
+Below are in depth descriptions of the design of each individual software module. It should be noted that not every component of the software architecture (see :numref:`software-architecture`) is included in this list because not every component is part of the system we implemented. In particular, we do not describe users (for more information on users see the SRS), the Internet, or our web server (for which we used a OOTBS/COTS).
+
+
 Frontend Manager
 -----------------
 
+The purpose of the frontend manager module is to help bind together separate components of the system. In particular, it is one half of the duo that is responsible for bridging the front and the back end (for more information on the other component of that connection see :numref:`backend-manager`). Because the frontend manager acts primarily as a middle ground for passing information and control messages, it does not have much internal structure. However, we can still represent this module in a static fashion using the diagram below. Note that there is still interfacing with other modules in this model because the frontend manager is defined by its interface with other parts of the system.
+
+.. figure:: images/frontend_manager_static.png
+   :name: frontend-manager-static
+   :scale: 50%
+
+   Frontend Manager Static Model
+
+The frontend manager acts as a sort of "ambassador" between the frontend and the backend which means it accepts inputs and outputs from both sides. On the backend side, this module gives outputs to the backend manager and receives inputs from both the color analyzer and database interpretor modules. The outputs that are given to the backend manager are control messages that indicate what the user is "asking for," which results in the proper data being generated. The inputs from the backend are different types of data intended to be delivered to end-users. Because this module is implemented using the same framework and technologies as the backend, the data can be transferred directly from where it is generated to the frontend manager. 
+
+
+In terms of interfacing with the frontend, we can again divide the interactions into inputs and outputs. Inputs from the frontend originate from user interaction which is translated into function calls to the frontend manager. Outputs to the frontend carry essentially the same information that has been generated in the backend, but it is important that the data is formatted for wed display so that it can be utilized to change the website graphically. A dynamic diagram can be used to show these interfaces in a more streamlined way:
+
+.. figure:: images/frontend_manager_dynamic.png
+   :name: frontend-manager-dynamic
+   :scale: 50%
+
+   Frontend Manager Dynamic Model
+
+The design rationale behind the frontend manager can be summarized as: optimizing system communication. We could have designed Gbiv so that frontend components interfaced directly with backend modules, but by establishing a central place for inputs from and outputs to user-facing modules, we simplified our implementation significantly. 
+
+.. _backend-manager:
 
 Backend Manager
 -----------------
+
+The functionality of the backend manager is very similar to that of the frontend manager: it acts primarily as a way for other parts of the system to interact with each other. It is a vital part of the overall framework of Gbiv because without it...
 
 
 Web Interface
 ---------------
 
+The Web Interface module is essential to the system because it defines the user experience in our application. The design of our website follows the traditional multi-page model seen on many popular websites with a navbar at the top to navigate between the pages. Each page has a different functionality and displays different information to the user. The general layout of each page is shown visually in the static diagram below:
+
+
+.. figure:: images/website_static.png
+   :name: website-static
+   :scale: 50%
+
+   Web Interface Static Model
+
+There are two main interactions that the web interface has with other components in the system. First, it interacts extensively with the users through Internet by way of the server it is hosted on. The web interface is how the user requests the services that Gbiv provides and receives the information that is generated in response to these requests. Gbiv is a web-hosted application, which makes the server that hosts our application absolutely vital in the interface between users and the website module.
+
+The second interaction that is key to keep the web interface functioning is the communication between each page and the Frontend Manager module. The Frontend Manager connects the user-facing display with the backend functionality and allows for dynamic pages that change in response user input. These two types of interaction are elaborated on in the dynamic model below:
+
+.. figure:: images/website_dynamic.png
+   :name: website-dynamic
+   :scale: 50%
+
+   Web Interface Dynamic Model
+
+The website was designed in this way for two primary reasons: (1) the multi-page website is familiar and therefore easily navigable for our users and (2) having separate pages increases modularity. The former point is important for Gbiv because our target users are a very wide demographic, so we want an intuitive and accessible user interface. The latter point has important advantages when it comes to the development of the system. In particular, modularity allows for easier delegation of tasks and for more efficient and focused debugging when problems arise.
+
+The web interface module can be divided into sub-modules based on separate pages on the site. Below we have a brief description of each page's functionality and structure.
 
 Main Page (Upload an Image)
 #############################
 
+This is the page where users can upload an image to have its dominant color extracted and related colors and palettes generated for that dominant color. For more information on the dynamics of this use case see [link to use case #1]. At first the page will only have a skeleton with blank palettes and color blocks, but after the user uploads a valid image, those blocks will be populated with the generated colors. The users will be able to filter the palettes that have been generated by selecting tags that will be displayed above the palettes section.
 
-Popular Palettes Page
+
+Example Palettes Page
 #######################
+
+This page of our website shows a variety of example palettes so that users can get ideas and inspiration for their own color palettes. When the user opens the page, the system will query the backend database which will result in a series of 4-color palettes being displayed as blocks. Like the palette section on the main page, the example palettes section will have several tags along the top which users can select to filter out the results displayed. For more information on the moving parts of this process see [use case #2].
 
 
 Color Theory Page
 ##################
 
+This part of the website is purely informational. It will provide users with basic knowledge of color theory and show how the principles of this discipline have been applied in Gbiv to generate new colors after an image has been uploaded.
+
 
 About Us Page
 ################
 
-
+Like the color theory page, the "About Us" page has little to do with the dynamics of Gbiv, rather it exists to provide background to the users. Information about the project and the team are important from a developer's perspective because we like to get credit for our hard work. However, it also benefits the user because it provides an avenue for contacting the team to report bugs or to become a contributor themselves if we make this system open source in the future.
 
 
 Color Analysis
