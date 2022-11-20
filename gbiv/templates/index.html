@@ -13,5 +13,23 @@
 {% else %}
 <h1> {{ palettes }} </h1>
 <h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
+
+<script>
+	function addCss(rule) {
+		let css = document.createElement('style');
+		css.type = 'text/css';
+		if (css.styleSheet) css.styleSheet.cssText = rule; // Support for IE
+		else css.appendChild(document.createTextNode(rule)); // Support for the rest
+		document.getElementsByTagName("head")[0].appendChild(css);
+	}
+	let rule = '.colorCardCustom {background-color: {{pList[0][0]}}; }';
+	window.onload = function() {addCss(rule)};
+</script>
+
+<div class="colorCardCustom" >
+	<p> {{ pList[0][0] }} </p>
+</div>
+
+
 {% endif %}
 {% endblock %}

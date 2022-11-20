@@ -1,6 +1,15 @@
+:root {
+    --color1: aquamarine;
+}
 h1 {
     border: 2px #eee solid;
     color: brown;
     text-align: center;
     padding: 10px;
+}
+
+.colorCardCustom {
+    width: 55px;
+    height: 20px;
+    background-color: var(--color1); /* default*/
 }
