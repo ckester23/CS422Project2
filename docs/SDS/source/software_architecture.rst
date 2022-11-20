@@ -3,13 +3,17 @@ Software Architecture
 
 The divide between frontend and backend was a guiding force in designing our software architecture. On one hand, it was important to maintain modularity within the two sides for ease of development. On the other, it was key that the two sides communicate fluidly so that the entire system could function properly. This led us to creating a "manager" module for both sides and use Flask as our framework throughout. 
 
-The diagram below shows our architecture visually. Note that there is a third section of the application shown which is dubbed the "User Space." This is not part of our implementation, but is an essential component of our design because ultimately Gbiv is built for the users.
+The diagram below (:numref:`software-architecture`) shows our architecture visually. Note that there is a third section of the application shown which is dubbed the "User Space." This is not part of our implementation, but is an essential component of our design because ultimately Gbiv is built for the users.
 
 .. figure:: images/gbiv_soft_arch.png
    :name: software-architecture
    :scale: 50%
 
    Gbiv Software Architecture
+
+.. raw:: latex
+
+   \clearpage
 
 The model above shows both components of the system and their interactions. We can further elaborate our architecture by focusing on each of these dimensions in particular. First, we can examine the individual components using the following table:
 
