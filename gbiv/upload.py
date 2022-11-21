@@ -1,16 +1,18 @@
 """
-Author:               Scotty Wallace
+Author:               Scotty Wallace & Cheyanne Kester
 Team:                 DUX D-Zine
 Class:                CS 422
 Professor:            Juan Flores, Kartikeya Sharma
 Date Created:         11/12/2022
-Date Last Modified:   11/12/2022
+Date Last Modified:   11/20/2022
 
 This creates a landing page and an image upload page for our app
 """
 import os
 from flask import Blueprint, current_app, flash, g, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
+
+from . import hslStringParser as hsp
 
 from . import palette_finder as pf
 
@@ -38,7 +40,8 @@ def index():
 
 @bp.route('/uploaded/<palettes>')
 def uploaded(palettes):
-    return render_template('index.html', palettes=str(palettes))
+    parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
+    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)
 
 # upload page
 # code is run after clicking submit button
