@@ -150,24 +150,14 @@ def get_analogous_right(dom):
     This function returns an array of 2 analogous colors to the right side of a given dominant color on the color wheel.
     ex: apple red would return red-orange and pumpkin orange
     """
-    rgb = rgb_to_percents(dom)
-    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
 
-    analogous = []
+    color1 = ((dom[0]+.025)%1, dom[1], dom[2])
+    color2 = ((dom[0]+.05)%1, dom[1], dom[2])
+    color3 = ((dom[0]+.075)%1, dom[1], dom[2])
 
-    color1 = (dom_hls[0]+.025, dom_hls[1], dom_hls[2])
-    color2 = (dom_hls[0]+.05, dom_hls[1], dom_hls[2])
-    color3 = (dom_hls[0]+.075, dom_hls[1], dom_hls[2])
+    analogous = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
 
-    color1 = hls_to_hex(color1)
-    color2 = hls_to_hex(color2)
-    color3 = hls_to_hex(color3)
-
-    analogous.append(color1)
-    analogous.append(color2)
-    analogous.append(color3)
-
-    return (analogous[0], analogous[1], analogous[2])
+    return tup_to_dict(analogous)
 
 
 def get_analogous_left(dom):
@@ -175,25 +165,16 @@ def get_analogous_left(dom):
     This function returns an array of 3 analagouos colors to the left side of a given dominant color on the color wheel.
     ex: apple red would return a magenta and violet shade
     """
-    rgb = rgb_to_percents(dom)
-    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
 
-    analogous = []
+    color1 = ((dom[0]-.025)%1, dom[1], dom[2])
+    color2 = ((dom[0]-.05)%1, dom[1], dom[2])
+    color3 = ((dom[0]-.075)%1, dom[1], dom[2])
 
-    color1 = (dom_hls[0]-.025, dom_hls[1], dom_hls[2])
-    color2 = (dom_hls[0]-.05, dom_hls[1], dom_hls[2])
-    color3 = (dom_hls[0]-.075, dom_hls[1], dom_hls[2])
-
-    color1 = hls_to_hex(color1)
-    color2 = hls_to_hex(color2)
-    color3 = hls_to_hex(color3)
-
-    analogous.append(color1)
-    analogous.append(color2)
-    analogous.append(color3)
+    analogous = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
 
 
-    return (analogous[0], analogous[1], analogous[2])
+    return tup_to_dict(analogous)
+
 
 
 def get_analogous_centered(dom):
@@ -207,10 +188,10 @@ def get_analogous_centered(dom):
 
     analogous = []
 
-    color1 = (dom_hls[0]-.025, dom_hls[1], dom_hls[2])
-    color2 = (dom_hls[0]-.05, dom_hls[1], dom_hls[2])
-    color3 = (dom_hls[0]+.025, dom_hls[1], dom_hls[2])
-    color4 = (dom_hls[0]+.05, dom_hls[1], dom_hls[2])
+    color1 = ((dom_hls[0]-.025), dom_hls[1], dom_hls[2])
+    color2 = ((dom_hls[0]-.05), dom_hls[1], dom_hls[2])
+    color3 = ((dom_hls[0]+.025), dom_hls[1], dom_hls[2])
+    color4 = ((dom_hls[0]+.05), dom_hls[1], dom_hls[2])
 
     color1 = hls_to_hex(color1)
     color2 = hls_to_hex(color2)
@@ -226,6 +207,7 @@ def get_analogous_centered(dom):
 
     return (analogous[0], analogous[1], analogous[2], analogous[3])
 
+
 # Complimentary Palettes
 
 def get_complimentary(dom):
@@ -237,8 +219,8 @@ def get_complimentary(dom):
 
     complimentary = []
 
-    color1 = (dom_hls[0]+.5, dom_hls[1], dom_hls[2])
-    color2 = (color1[0]-.025, color1[1], color1[2])
+    color1 = ((dom_hls[0]+.5)%1, dom_hls[1], dom_hls[2])
+    color2 = ((color1[0]-.025)%1, color1[1], color1[2])
     color3 = (color1[0]-.05, color1[1], color1[2])
     color4 = (color1[0]+.025, color1[1], color1[2])
     color5 = (color1[0]+.05, color1[1], color1[2])
@@ -300,8 +282,10 @@ def palette_generator(dom):
     # Generating monochromatic palettes
     mono_u = mono_up(dom_hls)
     mono_d = mono_down(dom_hls)
+    anlg_r = get_analogous_right(dom_hls)
+    anlg_l = get_analogous_left(dom_hls)
 
-    return (mono_u, mono_d)
+    return (mono_u, mono_d, anlg_r, anlg_l)
 
 
 
@@ -313,6 +297,8 @@ def main():
     print("Dominant Color:             ", hexa)
     print("Monochromatic Up Palette:   ", palettes[0])
     print("Monochromatic Down Palette: ", palettes[1])
+    print("Analogous Right Palette: ", palettes[2])
+    print("Analogous Left Palette: ", palettes[3])
     print()
 
 if __name__ == "__main__":
