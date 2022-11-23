@@ -1,6 +1,6 @@
 h1 {
 	border: 2px #eee solid;
-	color: brown;
+	color: green; /*(165, 42, 42) red brown from before */
 	text-align: center;
 	padding: 10px;
 }

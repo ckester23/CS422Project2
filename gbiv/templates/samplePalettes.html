@@ -2,3 +2,134 @@
 {% block header %}
 <h1>{% block title %}Sample Palettes{% endblock %}</h1>
 {% endblock %}
+
+{% block content %}
+<div class="DisplayPalettes">
+	<div>
+		<div class="paletteDisplay">
+			<div>
+				<div id="test0" class="colorDisplaysTop" ></div>
+				<div id="test1" class="colorDisplays"></div>
+				<div id="test2" class="colorDisplays"></div>
+				<div id="test3" class="colorDisplaysBottom"></div>
+			</div>
+
+			<div style="padding-top: 8px;">
+				<div class="value">#a27ea2</div>
+				<div class="value">#c1a9c1</div>
+				<div class="value">#e0d4e0</div>
+				<div class="value">#ffffff</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="paletteDisplay">
+			<div>
+				<div id="test4" class="colorDisplaysTop" ></div>
+				<div id="test5" class="colorDisplays"></div>
+				<div id="test6" class="colorDisplays"></div>
+				<div id="test7" class="colorDisplaysBottom"></div>
+			</div>
+
+			<div style="padding-top: 8px;">
+				<div class="value">#a27ea2</div>
+				<div class="value">#705070</div>
+				<div class="value">#382838</div>
+				<div class="value">#000000</div>
+			</div>
+		</div>
+	</div>
+
+    <div>
+		<div class="paletteDisplay">
+			<div>
+				<div id="test8" class="colorDisplaysTop" ></div>
+				<div id="test9" class="colorDisplays"></div>
+				<div id="test10" class="colorDisplays"></div>
+				<div id="test11" class="colorDisplaysBottom"></div>
+			</div>
+
+			<div style="padding-top: 8px;">
+				<div class="value">#3c524b</div>
+				<div class="value">#71978b</div>
+				<div class="value">#b8cbc5</div>
+				<div class="value">#ffffff</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="paletteDisplay">
+			<div>
+				<div id="test12" class="colorDisplaysTop" ></div>
+				<div id="test13" class="colorDisplays"></div>
+				<div id="test14" class="colorDisplays"></div>
+				<div id="test15" class="colorDisplaysBottom"></div>
+			</div>
+
+			<div style="padding-top: 8px;">
+				<div class="value">#3c524b</div>
+				<div class="value">#283732</div>
+				<div class="value">#141b19</div>
+				<div class="value">#000000</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById("test0").style.cssText = `width: 75px; height: 30px;
+ background-color: #a27ea2;
+ `
+	document.getElementById("test1").style.cssText = `width: 75px; height: 30px;
+ background-color: #c1a9c1;
+ `
+	document.getElementById("test2").style.cssText = `width: 75px; height: 30px;
+ background-color: #e0d4e0;
+ `
+	document.getElementById("test3").style.cssText = `width: 75px; height: 30px;
+ background-color: #ffffff;
+ `
+
+	document.getElementById("test4").style.cssText = `width: 75px; height: 30px;
+ background-color: #a27ea2;
+ `
+	document.getElementById("test5").style.cssText = `width: 75px; height: 30px;
+ background-color: #705070;
+ `
+	document.getElementById("test6").style.cssText = `width: 75px; height: 30px;
+ background-color: #382838;
+ `
+	document.getElementById("test7").style.cssText = `width: 75px; height: 30px;
+ background-color: #000000;
+ `
+
+ document.getElementById("test8").style.cssText = `width: 75px; height: 30px;
+ background-color: #3c524b;
+ `
+	document.getElementById("test9").style.cssText = `width: 75px; height: 30px;
+ background-color: #71978b;
+ `
+	document.getElementById("test10").style.cssText = `width: 75px; height: 30px;
+ background-color: #b8cbc5;
+ `
+	document.getElementById("test11").style.cssText = `width: 75px; height: 30px;
+ background-color: #ffffff;
+ `
+
+	document.getElementById("test12").style.cssText = `width: 75px; height: 30px;
+ background-color: #3c524b;
+ `
+	document.getElementById("test13").style.cssText = `width: 75px; height: 30px;
+ background-color: #283732;
+ `
+	document.getElementById("test14").style.cssText = `width: 75px; height: 30px;
+ background-color: #141b19;
+ `
+	document.getElementById("test15").style.cssText = `width: 75px; height: 30px;
+ background-color: #000000;
+ `
+</script>
+
+{% endblock %}
