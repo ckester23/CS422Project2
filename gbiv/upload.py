@@ -13,7 +13,6 @@ from flask import Blueprint, current_app, flash, g, redirect, render_template, r
 from werkzeug.utils import secure_filename
 
 from . import hslStringParser as hsp
-
 from . import palette_finder as pf
 
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
@@ -33,11 +32,11 @@ def get_palette(path):
    return pf.palette_generator(domColor[1])
 
 # landing page
-# takes optional param which is a tuple of palettes
 @bp.route('/')
 def index():
     return render_template('index.html', palettes=None)
 
+# page displaying all palettes
 @bp.route('/uploaded/<palettes>')
 def uploaded(palettes):
     parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne

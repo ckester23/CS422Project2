@@ -11,9 +11,6 @@
 	<input type=submit value=Upload>
 </form>
 {% else %}
-<h1> {{ palettes }} </h1>
-<h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
-
 <div class="DisplayPalettes">
 	<div>
 		<div class="paletteDisplay">
@@ -81,5 +78,6 @@
 	`
 </script>
 
+<h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
 {% endif %}
 {% endblock %}
