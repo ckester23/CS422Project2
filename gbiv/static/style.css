@@ -1,6 +1,51 @@
+
 h1 {
     border: 2px #eee solid;
     color: brown;
     text-align: center;
     padding: 10px;
 }
+
+.DisplayPalettes {
+    /* for displaying all palettes */
+    display:flex;
+    width: 75%;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.paletteDisplay {
+    /* for displaying a single palette */
+    width: 50%;
+    display: flex;
+    padding: 50px;
+}
+
+.value {
+    width: 75px; 
+    height: 30px;
+}
+
+.colorDisplays {
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+    margin-right: 4px;
+}
+
+.colorDisplaysTop {
+    border-top: 2px black solid;
+
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+    margin-right: 4px;
+}
+
+.colorDisplaysBottom {
+    border-bottom: 2px black solid;
+
+    border-right: 2px black solid;
+    border-left: 2px black solid;
+    margin-right: 4px;
+}
+

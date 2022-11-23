@@ -1,13 +1,13 @@
 """
-Author:               Ian McConachie
+Author:               Ian McConachie, Sam Heilenbach, Scott Wallace
 Team:                 DUX D-Zine
 Class:                CS 422
 Professor:            Juan Flores, Kartikeya Sharma
 Date Created:         11/09/2022
-Date Last Modified:   11/09/2022
+Date Last Modified:   11/21/2022
 
-This is a prototype python script for extracting the dominant color from an
-image and creating a single palette. This script was written for the purpose
+This is a python script for extracting the dominant color from an
+image and creating a palettes. This script was written for the purpose
 of the Gbiv project by DUX D-Zine.
 
 """
@@ -84,6 +84,8 @@ def hls_to_hex(hls):
 
 ## PALETTE FUNCTIONS
 
+# Monochromatic Palettes
+
 def mono_up(hls):
     """
     This function generates a palette that is monochromatic and has shades that
@@ -141,6 +143,105 @@ def mono_down(hls):
     return tup_to_dict(tup)
 
 
+# Analogous Palettes
+
+def get_analogous_right(dom):
+    """
+    This function returns an array of 2 analogous colors to the right side of a given dominant color on the color wheel.
+    ex: apple red would return red-orange and pumpkin orange
+    """
+
+    color1 = ((dom[0]+.025)%1, dom[1], dom[2])
+    color2 = ((dom[0]+.05)%1, dom[1], dom[2])
+    color3 = ((dom[0]+.075)%1, dom[1], dom[2])
+
+    analogous = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
+
+    return tup_to_dict(analogous)
+
+
+def get_analogous_left(dom):
+    """
+    This function returns an array of 3 analagouos colors to the left side of a given dominant color on the color wheel.
+    ex: apple red would return a magenta and violet shade
+    """
+
+    color1 = ((dom[0]-.025)%1, dom[1], dom[2])
+    color2 = ((dom[0]-.05)%1, dom[1], dom[2])
+    color3 = ((dom[0]-.075)%1, dom[1], dom[2])
+
+    analogous = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
+
+
+    return tup_to_dict(analogous)
+
+
+
+def get_analogous_centered(dom):
+    """
+    This function returns an array of 2 analagouos colors to the left side of a given dominant color on the color wheel 
+    and two to the right of the dominant color.
+    ex: apple red would return a magenta and violet shade as well as a red-orange and pumpkin orange
+    """
+    rgb = rgb_to_percents(dom)
+    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
+
+    analogous = []
+
+    color1 = ((dom_hls[0]-.025), dom_hls[1], dom_hls[2])
+    color2 = ((dom_hls[0]-.05), dom_hls[1], dom_hls[2])
+    color3 = ((dom_hls[0]+.025), dom_hls[1], dom_hls[2])
+    color4 = ((dom_hls[0]+.05), dom_hls[1], dom_hls[2])
+
+    color1 = hls_to_hex(color1)
+    color2 = hls_to_hex(color2)
+    color3 = hls_to_hex(color3)
+    color4 = hls_to_hex(color4)
+
+    analogous.append(color1)
+    analogous.append(color2)
+    analogous.append(color3)
+    analogous.append(color4)
+
+
+
+    return (analogous[0], analogous[1], analogous[2], analogous[3])
+
+
+# Complimentary Palettes
+
+def get_complimentary(dom):
+    """
+    This function returns an array of 3 complimentary colors given a dominant color.
+    """
+    rgb = rgb_to_percents(dom)
+    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
+
+    complimentary = []
+
+    color1 = ((dom_hls[0]+.5)%1, dom_hls[1], dom_hls[2])
+    color2 = ((color1[0]-.025)%1, color1[1], color1[2])
+    color3 = (color1[0]-.05, color1[1], color1[2])
+    color4 = (color1[0]+.025, color1[1], color1[2])
+    color5 = (color1[0]+.05, color1[1], color1[2])
+
+    color1 = hls_to_hex(color1)
+    color2 = hls_to_hex(color2)
+    color3 = hls_to_hex(color3)
+    color4 = hls_to_hex(color4)
+    color5 = hls_to_hex(color5)
+
+    complimentary.append(color1)
+    complimentary.append(color2)
+    complimentary.append(color3)
+    complimentary.append(color4)
+    complimentary.append(color5)
+
+    
+    return (complimentary[0], complimentary[1], complimentary[2], complimentary[3], complimentary[4])
+
+
+
 
 ## PRIMARY FUNCTIONS
 
@@ -181,8 +282,10 @@ def palette_generator(dom):
     # Generating monochromatic palettes
     mono_u = mono_up(dom_hls)
     mono_d = mono_down(dom_hls)
+    anlg_r = get_analogous_right(dom_hls)
+    anlg_l = get_analogous_left(dom_hls)
 
-    return (mono_u, mono_d)
+    return (mono_u, mono_d, anlg_r, anlg_l)
 
 
 
@@ -194,6 +297,8 @@ def main():
     print("Dominant Color:             ", hexa)
     print("Monochromatic Up Palette:   ", palettes[0])
     print("Monochromatic Down Palette: ", palettes[1])
+    print("Analogous Right Palette: ", palettes[2])
+    print("Analogous Left Palette: ", palettes[3])
     print()
 
 if __name__ == "__main__":
