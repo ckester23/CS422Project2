@@ -15,6 +15,8 @@ from flask import Flask
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    # binary secret key
+    app.secret_key = b'goducks'
     app.config['UPLOAD_FOLDER'] = 'gbiv/static/images/'
     app.config['SITE_LOGO'] = 'gbiv/templates/logo_capture.PNG'
 
