@@ -1,0 +1,33 @@
+<style>
+    .customBody {
+        margin: 0;
+        padding: 0;
+    }
+
+    .customDiv{
+        display: flex;
+        background: gray;
+        color: #f9f9f9;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    .customP{
+        margin: 10px;
+    }
+
+    h2{
+        margin: 10px;
+    }
+</style>
+
+<div class="customDiv">
+    <h2> GBIV </h2>
+    <img src="logo_capture.PNG">
+    <a class="action customP" href="{{ url_for('index') }}">HOME</a>
+    <a class="action customP" href="{{ url_for('upload.about') }}">ABOUT US</a>
+    <a class="action customP" href="{{ url_for('upload.samplePalettes') }}">SAMPLE PALETTES</a>
+    <a class="action customP" href="{{ url_for('upload.colortheory') }}">COLOR THEORY</a>
+</div> 

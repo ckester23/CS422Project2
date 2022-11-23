@@ -16,6 +16,7 @@ from flask import Flask
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config['UPLOAD_FOLDER'] = 'gbiv/static/images/'
+    app.config['SITE_LOGO'] = 'gbiv/templates/logo_capture.PNG'
 
     # manually pushing app context
     with app.app_context():

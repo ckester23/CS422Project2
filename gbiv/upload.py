@@ -7,6 +7,7 @@ Date Created:         11/12/2022
 Date Last Modified:   11/20/2022
 
 This creates a landing page and an image upload page for our app
+Initializes routes for all pages
 """
 import os
 from flask import Blueprint, current_app, flash, g, redirect, render_template, request, url_for
@@ -16,6 +17,7 @@ from . import hslStringParser as hsp
 from . import palette_finder as pf
 
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
+SITE_LOGO = current_app.config['SITE_LOGO']
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 bp = Blueprint('upload', __name__)
@@ -40,6 +42,15 @@ def index():
 @bp.route('/about')
 def about():
     return render_template('about.html')
+
+# color theory page
+@bp.route('/colortheory')
+def colortheory():
+    return render_template('colortheory.html')
+
+@bp.route('/samplePalettes')
+def samplePalettes():
+    return render_template('samplePalettes.html')
     
 # page displaying all palettes
 @bp.route('/uploaded/<palettes>')
