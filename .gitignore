@@ -1,0 +1,5 @@
+
+environments
+node_modules
+gbiv/static/images
+gbiv/__pycache__
