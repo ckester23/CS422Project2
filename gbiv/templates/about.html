@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<h1>{% block title %}About Us!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>Who we are and our roles</p>
+<h2 style="text-align:center">Our Software Development Team</h2>
+<div class="row">
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Cheyanne" style="width:50%">
+			<div class="container">
+				<h2>Cheyanne Kester</h2>
+				<p class="title">Front End</p>
+				<p>Contact: ckester@uoregon.edu</p>
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Austin" style="width:50%">
+			<div class="container">
+				<h2>Austin Warren</h2>
+				<p class="title">Back End</p>
+				<p>Contact: awarren3@uoregon.edu</p>
+
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Scott" style="width:50%">
+			<div class="container">
+				<h2>Scott Wallace</h2>
+				<p class="title">Full Stack</p>
+				<p>Contact: swallace@uoregon.edu</p>
+
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Sam" style="width:50%">
+			<div class="container">
+				<h2>Sam Heilanbach</h2>
+				<p class="title">Back End</p>
+				<p>Contact: sheilanbach@uoregon.edu</p>
+
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Ian" style="width:50%">
+			<div class="container">
+				<h2>Ian McConachie</h2>
+				<p class="title">Documentation</p>
+				<p>Contact: imcconachie@uoregon.edu</p>
+
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="card">
+			<img src="test.jpg" alt="Catherine" style="width:50%">
+			<div class="container">
+				<h2>Catherine Raj</h2>
+				<p class="title">Front End</p>
+				<p>Contact: craj@uoregon.edu</p>
+
+				<p><button class="button">Contact</button></p>
+			</div>
+		</div>
+	</div>
+</div>
+<h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
+{% endblock %}
