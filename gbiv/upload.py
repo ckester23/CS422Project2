@@ -36,7 +36,7 @@ def get_palette(path):
 def index():
     return render_template('index.html', palettes=None)
 
-# landing page
+# about us page
 @bp.route('/about')
 def about():
     return render_template('about.html')
