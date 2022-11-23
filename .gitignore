@@ -1,0 +1,6 @@
+node_modules
+environments
+gbiv/static/images
+package.json
+package-lock.json
+gbiv/__pycache__
