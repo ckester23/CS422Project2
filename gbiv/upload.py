@@ -36,6 +36,11 @@ def get_palette(path):
 def index():
     return render_template('index.html', palettes=None)
 
+# landing page
+@bp.route('/about')
+def about():
+    return render_template('about.html')
+    
 # page displaying all palettes
 @bp.route('/uploaded/<palettes>')
 def uploaded(palettes):

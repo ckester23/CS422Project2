@@ -2,6 +2,7 @@
 
 {% block header %}
 <h1>{% block title %}Gbiv home/upload page{% endblock %}</h1>
+<h1> <a class="action" href="{{ url_for('upload.about') }}">about us</a> </h1>
 {% endblock %}
 
 {% block content %}
@@ -20,7 +21,7 @@
 				<div id="test2" class="colorDisplays"></div>
 				<div id="test3" class="colorDisplaysBottom"></div>
 			</div>
-	
+
 			<div style="padding-top: 8px;">
 				<div class="value">{{pList[0][0]}}</div>
 				<div class="value">{{pList[0][1]}}</div>
@@ -29,7 +30,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div>
 		<div class="paletteDisplay">
 			<div>
@@ -38,7 +39,7 @@
 				<div id="test6" class="colorDisplays"></div>
 				<div id="test7" class="colorDisplaysBottom"></div>
 			</div>
-	
+
 			<div style="padding-top: 8px;">
 				<div class="value">{{pList[1][0]}}</div>
 				<div class="value">{{pList[1][1]}}</div>
@@ -52,30 +53,30 @@
 
 <script>
 	document.getElementById("test0").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[0][0]}};
-	`
+ background-color: {{pList[0][0]}};
+ `
 	document.getElementById("test1").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[0][1]}};
-	`
+ background-color: {{pList[0][1]}};
+ `
 	document.getElementById("test2").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[0][2]}};
-	`
+ background-color: {{pList[0][2]}};
+ `
 	document.getElementById("test3").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[0][3]}};
-	`
+ background-color: {{pList[0][3]}};
+ `
 
 	document.getElementById("test4").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[1][0]}};
-	`
+ background-color: {{pList[1][0]}};
+ `
 	document.getElementById("test5").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[1][1]}};
-	`
+ background-color: {{pList[1][1]}};
+ `
 	document.getElementById("test6").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[1][2]}};
-	`
+ background-color: {{pList[1][2]}};
+ `
 	document.getElementById("test7").style.cssText = `width: 75px; height: 30px;
-    background-color: {{pList[1][3]}};
-	`
+ background-color: {{pList[1][3]}};
+ `
 </script>
 
 <h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
