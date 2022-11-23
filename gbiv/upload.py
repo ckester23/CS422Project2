@@ -9,7 +9,7 @@ Date Last Modified:   11/20/2022
 This creates a landing page and an image upload page for our app
 """
 import os
-from flask import Blueprint, current_app, flash, g, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
 
 from . import hslStringParser as hsp
@@ -54,9 +54,12 @@ def file_upload():
     file = request.files['file']
     if file.filename == '':
         flash('no file given')
-    if (file != '') and allowed_file(file.filename):
+    elif not(allowed_file(file.filename)):
+        flash('invalid filetype')
+    else:
         filename = secure_filename(file.filename)
         path = os.path.join(UPLOAD_FOLDER + filename)
         file.save(path)
+        return redirect(url_for('upload.uploaded', palettes = get_palette(path))) 
 
-    return redirect(url_for('upload.uploaded', palettes = get_palette(path))) 
+    return render_template('index.html', palettes=None)
