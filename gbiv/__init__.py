@@ -18,7 +18,6 @@ def create_app(test_config=None):
     # binary secret key
     app.secret_key = b'goducks'
     app.config['UPLOAD_FOLDER'] = 'gbiv/static/images/'
-    app.config['SITE_LOGO'] = 'gbiv/templates/logo_capture.PNG'
 
     # manually pushing app context
     with app.app_context():

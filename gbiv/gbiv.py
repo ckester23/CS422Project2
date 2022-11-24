@@ -10,6 +10,7 @@ This creates a landing page and an image upload page for our app
 Initializes routes for all pages
 """
 import os
+import sys
 from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
 
@@ -17,10 +18,10 @@ from . import hslStringParser as hsp
 from . import palette_finder as pf
 
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
-SITE_LOGO = current_app.config['SITE_LOGO']
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 bp = Blueprint('gbiv', __name__)
+
 
 # from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
 # non routed functions first!
@@ -52,11 +53,17 @@ def colortheory():
 def samplePalettes():
     return render_template('samplePalettes.html')
     
+<<<<<<< HEAD:gbiv/gbiv.py
 # page displaying all palettes
 @bp.route('/gbived/<palettes>')
 def gbived(palettes):
+=======
+# page displaying user's palettes
+@bp.route('/uploaded/<palettes>')
+def uploaded(palettes):
+>>>>>>> 14adf199b3369652df12b9ef794af15aefdd44cb:gbiv/upload.py
     parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
-    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)
+    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
 
 # upload page
 # code is run after clicking submit button
@@ -67,10 +74,15 @@ def file_upload():
         flash('no file given')
     elif not(allowed_file(file.filename)):
         flash('invalid filetype')
-    else:
+    else: 
         filename = secure_filename(file.filename)
+        userImage = file.filename
         path = os.path.join(UPLOAD_FOLDER + filename)
         file.save(path)
+<<<<<<< HEAD:gbiv/gbiv.py
         return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
+=======
+        return redirect(url_for('upload.uploaded', palettes = get_palette(path)))
+>>>>>>> 14adf199b3369652df12b9ef794af15aefdd44cb:gbiv/upload.py
 
     return render_template('index.html', palettes=None)

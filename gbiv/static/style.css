@@ -1,6 +1,6 @@
 h1 {
 	border: 2px #eee solid;
-	color: green; /*(165, 42, 42) red brown from before */
+	color: #5271ff; /*(165, 42, 42) red brown from before */
 	text-align: center;
 	padding: 10px;
 }
@@ -87,13 +87,32 @@ h1 {
 	outline: 0;
 	display: inline-block;
 	padding: 8px;
-	color: white;
+	color: #7ed957;
 	background-color: #000;
 	text-align: center;
 	cursor: pointer;
 	width: 100%;
 }
 
+
 .button:hover {
 	background-color: #555;
 }
+
+.uploadButton {
+	display: inline-block;
+	outline: 0;
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: 4px;
+	font-size: 13px;
+	height: 30px;
+	background-color: #8c52ff;
+	color: white;
+	padding: 0 20px;
+ }
+
+ .uploadButton.hover {
+	background-color: #270c50;
+ }
