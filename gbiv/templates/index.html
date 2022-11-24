@@ -8,9 +8,13 @@
 {% if palettes == None %}
 <form method="POST" enctype="multipart/form-data">
 	<input type=file name=file>
-	<input type=submit value=Upload>
+	<input class="uploadButton" type=submit value=Upload>
 </form>
+
 {% else %}
+<p> Your Image (test)</p>
+<img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 50px">
+
 <div class="DisplayPalettes">
 	<div>
 		<div class="paletteDisplay">
@@ -78,6 +82,5 @@
  `
 </script>
 
-<h1> <a class="action" href="{{ url_for('index') }}">home</a> </h1>
 {% endif %}
 {% endblock %}
