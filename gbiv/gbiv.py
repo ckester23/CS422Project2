@@ -53,15 +53,9 @@ def colortheory():
 def samplePalettes():
     return render_template('samplePalettes.html')
     
-<<<<<<< HEAD:gbiv/gbiv.py
 # page displaying all palettes
 @bp.route('/gbived/<palettes>')
 def gbived(palettes):
-=======
-# page displaying user's palettes
-@bp.route('/uploaded/<palettes>')
-def uploaded(palettes):
->>>>>>> 14adf199b3369652df12b9ef794af15aefdd44cb:gbiv/upload.py
     parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
     return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
 
@@ -79,10 +73,6 @@ def file_upload():
         userImage = file.filename
         path = os.path.join(UPLOAD_FOLDER + filename)
         file.save(path)
-<<<<<<< HEAD:gbiv/gbiv.py
         return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
-=======
-        return redirect(url_for('upload.uploaded', palettes = get_palette(path)))
->>>>>>> 14adf199b3369652df12b9ef794af15aefdd44cb:gbiv/upload.py
 
     return render_template('index.html', palettes=None)
