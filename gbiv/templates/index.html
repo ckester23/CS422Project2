@@ -12,75 +12,11 @@
 </form>
 
 {% else %}
-<p> Your Image (test)</p>
+<p> Your Image (placeholder image currently)</p>
 <img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 50px">
 
-<div class="DisplayPalettes">
-	<div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test0" class="colorDisplaysTop" ></div>
-				<div id="test1" class="colorDisplays"></div>
-				<div id="test2" class="colorDisplays"></div>
-				<div id="test3" class="colorDisplaysBottom"></div>
-			</div>
-
-			<div style="padding-top: 8px;">
-				<div class="value">{{pList[0][0]}}</div>
-				<div class="value">{{pList[0][1]}}</div>
-				<div class="value">{{pList[0][2]}}</div>
-				<div class="value">{{pList[0][3]}}</div>
-			</div>
-		</div>
-	</div>
-
-	<div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test4" class="colorDisplaysTop" ></div>
-				<div id="test5" class="colorDisplays"></div>
-				<div id="test6" class="colorDisplays"></div>
-				<div id="test7" class="colorDisplaysBottom"></div>
-			</div>
-
-			<div style="padding-top: 8px;">
-				<div class="value">{{pList[1][0]}}</div>
-				<div class="value">{{pList[1][1]}}</div>
-				<div class="value">{{pList[1][2]}}</div>
-				<div class="value">{{pList[1][3]}}</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
-<script>
-	document.getElementById("test0").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[0][0]}};
- `
-	document.getElementById("test1").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[0][1]}};
- `
-	document.getElementById("test2").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[0][2]}};
- `
-	document.getElementById("test3").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[0][3]}};
- `
-
-	document.getElementById("test4").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[1][0]}};
- `
-	document.getElementById("test5").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[1][1]}};
- `
-	document.getElementById("test6").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[1][2]}};
- `
-	document.getElementById("test7").style.cssText = `width: 75px; height: 30px;
- background-color: {{pList[1][3]}};
- `
-</script>
-
+{% for color in pList %}
+<p style="color:#{{color}}";>{{color}}</p>
+{% endfor %}
 {% endif %}
 {% endblock %}

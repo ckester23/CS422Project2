@@ -56,7 +56,7 @@ def samplePalettes():
 # page displaying all palettes
 @bp.route('/gbived/<palettes>')
 def gbived(palettes):
-    parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
+    parsedPalettesList = hsp.parsePalette(palettes) #cheyanne
     return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
 
 # upload page
