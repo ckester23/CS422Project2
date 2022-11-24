@@ -21,26 +21,21 @@ into python LISTS, so that we can utilize the values for display
 </div>
 """
 
-def parseListOfPalettes(pList: str):
-    """
-    """
-    palette1 = pList[1:61]
-    palette2 = pList[63:123]
+def parsePalette(httpStr):
+    colorList = []
+    color = ''
+    append = False
 
-    parsedPalette1 = parsePalette(palette1)
-    parsedPalette2 = parsePalette(palette2)
+    for s in httpStr:
+        if s.isalnum():
+            color += s
+            append = True
+        elif(append):
+                colorList.append(str(color))
+                color = ''
+                append = False
 
-    return [parsedPalette1, parsedPalette2]
+    return colorList 
 
-
-def parsePalette(pal: str):
-    """
-    """
-    color1 = '#' + pal[7:13]
-    color2 = '#' + pal[22:28]
-    color3 = '#' + pal[37:43]
-    color4 = '#' + pal[52:58]
-
-    return [color1, color2, color3, color4]
-
-
+if __name__ == "__main__":
+    print(parsePalette("(('cc242c', 'e4666c', 'f1b3b5', 'ffffff'), ('cc242c', '88181d', '440c0f', '000000'), ('cc242c', 'cc3524', 'cc4e24', 'cc6824'), ('cc242c', 'cc2445', 'cc245e', 'cc2478'))"))
