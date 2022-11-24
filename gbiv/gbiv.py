@@ -20,7 +20,7 @@ from . import palette_finder as pf
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
-bp = Blueprint('upload', __name__)
+bp = Blueprint('gbiv', __name__)
 
 
 # from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
@@ -53,9 +53,9 @@ def colortheory():
 def samplePalettes():
     return render_template('samplePalettes.html')
     
-# page displaying user's palettes
-@bp.route('/uploaded/<palettes>')
-def uploaded(palettes):
+# page displaying all palettes
+@bp.route('/gbived/<palettes>')
+def gbived(palettes):
     parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
     return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
 
@@ -73,6 +73,6 @@ def file_upload():
         userImage = file.filename
         path = os.path.join(UPLOAD_FOLDER + filename)
         file.save(path)
-        return redirect(url_for('upload.uploaded', palettes = get_palette(path)))
+        return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
 
     return render_template('index.html', palettes=None)
