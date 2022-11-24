@@ -22,8 +22,8 @@ def create_app(test_config=None):
 
     # manually pushing app context
     with app.app_context():
-        from . import upload
-        app.register_blueprint(upload.bp)
+        from . import gbiv
+        app.register_blueprint(gbiv.bp)
         app.add_url_rule('/', endpoint='index')
 
 

@@ -20,7 +20,7 @@ UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER']
 SITE_LOGO = current_app.config['SITE_LOGO']
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
-bp = Blueprint('upload', __name__)
+bp = Blueprint('gbiv', __name__)
 
 # from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
 # non routed functions first!
@@ -53,8 +53,8 @@ def samplePalettes():
     return render_template('samplePalettes.html')
     
 # page displaying all palettes
-@bp.route('/uploaded/<palettes>')
-def uploaded(palettes):
+@bp.route('/gbived/<palettes>')
+def gbived(palettes):
     parsedPalettesList = hsp.parseListOfPalettes(palettes) #cheyanne
     return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)
 
@@ -71,6 +71,6 @@ def file_upload():
         filename = secure_filename(file.filename)
         path = os.path.join(UPLOAD_FOLDER + filename)
         file.save(path)
-        return redirect(url_for('upload.uploaded', palettes = get_palette(path))) 
+        return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
 
     return render_template('index.html', palettes=None)
