@@ -4,132 +4,129 @@
 {% endblock %}
 
 {% block content %}
-<div class="DisplayPalettes">
-	<div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test0" class="colorDisplaysTop" ></div>
-				<div id="test1" class="colorDisplays"></div>
-				<div id="test2" class="colorDisplays"></div>
-				<div id="test3" class="colorDisplaysBottom"></div>
-			</div>
+<div style="display: flex; justify-content: center;margin: auto;width: 75%;">
+<div>
+	{% set count = namespace(value=0) %} <!--- for color id -->
+	{% set count2 = namespace(value=0) %} <!--- for formatting -->
+	<div class="paletteParent">
+		<div>
+			{% for color in palList %}
+			
+				{% set count.value = count.value + 1 %}
+				{% set count2.value = count2.value + 1 %}
+				<div id="{{count.value}}" class="colorDisplays"></div>
+				
+				{% if count2.value%4 == 1 %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-top: 2px black solid;
+						border-bottom: 1px black solid;
+						`
+					</script>
 
-			<div style="padding-top: 8px;">
-				<div class="value">#a27ea2</div>
-				<div class="value">#c1a9c1</div>
-				<div class="value">#e0d4e0</div>
-				<div class="value">#ffffff</div>
-			</div>
+				{% elif count2.value%4 == 0 %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-bottom: 2px black solid;
+						margin-bottom: 10px;
+						`
+					</script>
+
+				{% else %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-bottom: 1px black solid;
+						`
+					</script>
+
+				{% endif %}
+			
+			{% endfor %}
 		</div>
-	</div>
 
-	<div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test4" class="colorDisplaysTop" ></div>
-				<div id="test5" class="colorDisplays"></div>
-				<div id="test6" class="colorDisplays"></div>
-				<div id="test7" class="colorDisplaysBottom"></div>
-			</div>
+		{% set count2 = namespace(value=0) %} 
+		<div>
+			{% for color in palList %}
+			
+				{% set count2.value = count2.value + 1 %}
 
-			<div style="padding-top: 8px;">
-				<div class="value">#a27ea2</div>
-				<div class="value">#705070</div>
-				<div class="value">#382838</div>
-				<div class="value">#000000</div>
-			</div>
-		</div>
-	</div>
+				{% if count2.value%4 == 0 %}
+				<p class="value" style="padding-bottom: 13px;">#{{color}}</p>
 
-    <div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test8" class="colorDisplaysTop" ></div>
-				<div id="test9" class="colorDisplays"></div>
-				<div id="test10" class="colorDisplays"></div>
-				<div id="test11" class="colorDisplaysBottom"></div>
-			</div>
+				{% else %}
+				<p class="value">#{{color}}</p>
 
-			<div style="padding-top: 8px;">
-				<div class="value">#3c524b</div>
-				<div class="value">#71978b</div>
-				<div class="value">#b8cbc5</div>
-				<div class="value">#ffffff</div>
-			</div>
-		</div>
-	</div>
+				{% endif %}
 
-	<div>
-		<div class="paletteDisplay">
-			<div>
-				<div id="test12" class="colorDisplaysTop" ></div>
-				<div id="test13" class="colorDisplays"></div>
-				<div id="test14" class="colorDisplays"></div>
-				<div id="test15" class="colorDisplaysBottom"></div>
-			</div>
-
-			<div style="padding-top: 8px;">
-				<div class="value">#3c524b</div>
-				<div class="value">#283732</div>
-				<div class="value">#141b19</div>
-				<div class="value">#000000</div>
-			</div>
-		</div>
+			{% endfor %}
+		</div> 
 	</div>
 </div>
 
-<script>
-	document.getElementById("test0").style.cssText = `width: 75px; height: 30px;
- background-color: #a27ea2;
- `
-	document.getElementById("test1").style.cssText = `width: 75px; height: 30px;
- background-color: #c1a9c1;
- `
-	document.getElementById("test2").style.cssText = `width: 75px; height: 30px;
- background-color: #e0d4e0;
- `
-	document.getElementById("test3").style.cssText = `width: 75px; height: 30px;
- background-color: #ffffff;
- `
+<div style="margin-left: 20px;">
+	{% set count2 = namespace(value=0) %} <!--- for formatting -->
+	<div class="paletteParent">
+		<div>
+			{% for color in palList %}
+			
+				{% set count.value = count.value + 1 %}
+				{% set count2.value = count2.value + 1 %}
+				<div id="{{count.value}}" class="colorDisplays"></div>
+				
+				{% if count2.value%4 == 1 %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-top: 2px black solid;
+						border-bottom: 1px black solid;
+						`
+					</script>
 
-	document.getElementById("test4").style.cssText = `width: 75px; height: 30px;
- background-color: #a27ea2;
- `
-	document.getElementById("test5").style.cssText = `width: 75px; height: 30px;
- background-color: #705070;
- `
-	document.getElementById("test6").style.cssText = `width: 75px; height: 30px;
- background-color: #382838;
- `
-	document.getElementById("test7").style.cssText = `width: 75px; height: 30px;
- background-color: #000000;
- `
+				{% elif count2.value%4 == 0 %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-bottom: 2px black solid;
+						margin-bottom: 10px;
+						`
+					</script>
 
- document.getElementById("test8").style.cssText = `width: 75px; height: 30px;
- background-color: #3c524b;
- `
-	document.getElementById("test9").style.cssText = `width: 75px; height: 30px;
- background-color: #71978b;
- `
-	document.getElementById("test10").style.cssText = `width: 75px; height: 30px;
- background-color: #b8cbc5;
- `
-	document.getElementById("test11").style.cssText = `width: 75px; height: 30px;
- background-color: #ffffff;
- `
+				{% else %}
+					<script>
+						document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+						background-color: #{{color}};
+						border-bottom: 1px black solid;
+						`
+					</script>
 
-	document.getElementById("test12").style.cssText = `width: 75px; height: 30px;
- background-color: #3c524b;
- `
-	document.getElementById("test13").style.cssText = `width: 75px; height: 30px;
- background-color: #283732;
- `
-	document.getElementById("test14").style.cssText = `width: 75px; height: 30px;
- background-color: #141b19;
- `
-	document.getElementById("test15").style.cssText = `width: 75px; height: 30px;
- background-color: #000000;
- `
-</script>
+				{% endif %}
+			
+			{% endfor %}
+		</div>
+
+		{% set count2 = namespace(value=0) %} 
+		<div>
+			{% for color in palList %}
+			
+				{% set count2.value = count2.value + 1 %}
+
+				{% if count2.value%4 == 0 %}
+				<p class="value" style="padding-bottom: 13px;">#{{color}}</p>
+
+				{% else %}
+				<p class="value">#{{color}}</p>
+
+				{% endif %}
+
+			{% endfor %}
+		</div> 
+	</div>
+</div>
+</div>
+
+
 
 {% endblock %}

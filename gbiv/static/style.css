@@ -30,6 +30,8 @@ h1 {
 .value {
 	width: 75px; 
 	height: 35px;
+	text-align: center;
+	vertical-align: center;
 }
 
 .colorDisplays {

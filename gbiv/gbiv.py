@@ -16,6 +16,7 @@ from werkzeug.utils import secure_filename
 
 from . import hslStringParser as hsp
 from . import palette_finder as pf
+from . import tempPalettes as tp
 
 UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -51,7 +52,8 @@ def colortheory():
 
 @bp.route('/samplePalettes')
 def samplePalettes():
-    return render_template('samplePalettes.html')
+    palettes = tp.getPalettes()
+    return render_template('samplePalettes.html', palList=palettes)
     
 # page displaying all palettes
 @bp.route('/gbived/<palettes>')
