@@ -15,8 +15,68 @@
 <p> Your Image (placeholder image currently)</p>
 <img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 50px">
 
-{% for color in pList %}
-<p style="color:#{{color}}";>{{color}}</p>
-{% endfor %}
+{% set count = namespace(value=0) %} <!--- for color id -->
+{% set count2 = namespace(value=0) %} <!--- for formatting -->
+<div class="paletteParent">
+	<div>
+		{% for color in pList %}
+		
+			{% set count.value = count.value + 1 %}
+			{% set count2.value = count2.value + 1 %}
+			<div id="{{count.value}}" class="colorDisplays"></div>
+			
+			{% if count2.value%4 == 1 %}
+				<script>
+					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+					background-color: #{{color}};
+					border-top: 2px black solid;
+					border-bottom: 1px black solid;
+					`
+				</script>
+
+			{% elif count2.value%4 == 0 %}
+				<script>
+					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+					background-color: #{{color}};
+					border-bottom: 2px black solid;
+					margin-bottom: 10px;
+					`
+				</script>
+
+			{% else %}
+				<script>
+					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+					background-color: #{{color}};
+					border-bottom: 1px black solid;
+					`
+				</script>
+
+			{% endif %}
+		
+		{% endfor %}
+	</div>
+
+	{% set count2 = namespace(value=0) %} 
+	<div>
+		{% for color in pList %}
+		
+			{% set count2.value = count2.value + 1 %}
+
+			{% if count2.value%4 == 0 %}
+			<p class="value" style="padding-bottom: 10px;">#{{color}}</p>
+
+			{% else %}
+			<p class="value">#{{color}}</p>
+
+			{% endif %}
+		
+
+		{% endfor %}
+	</div> 
+	
+</div>
+
+
 {% endif %}
+
 {% endblock %}

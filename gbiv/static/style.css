@@ -4,7 +4,15 @@ h1 {
 	text-align: center;
 	padding: 10px;
 }
+/* Upload page */
+.paletteParent {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	width: 75%;
+}
 
+/* sample palettes page */
 .DisplayPalettes {
 	/* for displaying all palettes */
 	display:flex;
@@ -13,20 +21,20 @@ h1 {
 	margin: auto;
 }
 
-
 .paletteDisplay {
 	/* for displaying a single palette */
 	width: 50%;
 	display: flex;
-	padding: 50px;
 }
 
 .value {
 	width: 75px; 
-	height: 30px;
+	height: 35px;
 }
 
 .colorDisplays {
+	width: 75px; 
+	height: 30px;
 	border-right: 2px black solid;
 	border-left: 2px black solid;
 	margin-right: 4px;
@@ -47,6 +55,9 @@ h1 {
 	border-left: 2px black solid;
 	margin-right: 4px;
 }
+
+/* end sample palettes page*/
+
 
 .column {
 	float: left;
@@ -99,6 +110,7 @@ h1 {
 	background-color: #555;
 }
 
+/* for upload page */
 .uploadButton {
 	display: inline-block;
 	outline: 0;
