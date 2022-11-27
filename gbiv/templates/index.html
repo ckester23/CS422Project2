@@ -1,20 +1,24 @@
 {% extends 'layout.html' %}
 
 {% block header %}
-<h1>{% block title %}Gbiv home/upload page{% endblock %}</h1>
+<h1>{% block title %}Upload Page{% endblock %}</h1>
+<h3 style="text-align: center;"> Here is where you can upload your image, and GBIV will extract palettes automatically!</h3>
 {% endblock %}
 
 {% block content %}
 {% if palettes == None %}
-<form method="POST" enctype="multipart/form-data">
-	<input type=file name=file>
-	<input class="uploadButton" type=submit value=Upload>
-</form>
+<div style="text-align: center;">
+	<form style="display: inline-block;" method="POST" enctype="multipart/form-data">
+		<input type=file name=file>
+		<input class="uploadButton" type=submit value=Upload>
+	</form>
+</div> 
 
 {% else %}
-<p> Your Image (placeholder image currently)</p>
-<img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 50px">
+<h4 style="text-align: center;"> Your Image (placeholder):</h4>
+<img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 25%; display: block; margin: auto; width: 25%; padding: 2.5%;" >
 
+<h4 style="text-align: center;"> Generated Palettes:</h4>
 {% set count = namespace(value=0) %} <!--- for color id -->
 {% set count2 = namespace(value=0) %} <!--- for formatting -->
 <div class="paletteParent">
@@ -76,7 +80,21 @@
 	
 </div>
 
-
+<h4 style="text-align: center;"> Click the UPLOAD navigation tab to upload a different image </h4>
 {% endif %}
+
+
+<h1 style="margin-top: 10%;"> About GBIV </h1>
+<div style="text-align: center;">
+    <pre>
+    Design and color theory are everywhere from web development to fashion to interior design and architecture. No
+    existing site has the functionality of our application which provides a powerful tool for applying color theory to the real
+    world. We often have physical items such as paint, clothes, or furniture where we cannot simply check the hex code of
+    the dominant color. 
+    Our application combines this analysis of the color in terms of hex along with recommendations
+    for colors to combine it with based on color theory.
+    
+    </pre>
+</div>
 
 {% endblock %}
