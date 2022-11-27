@@ -120,7 +120,7 @@ h1 {
 	background-color: #555;
 }
 
-/* for upload page */
+/* for upload page class="uploadButton" */
 .uploadButton {
 	display: inline-block;
 	outline: 0;
@@ -136,5 +136,5 @@ h1 {
  }
 
  .uploadButton.hover {
-	background-color: #270c50;
+	background-color: black;
  }
