@@ -6,7 +6,7 @@
 }
 
 h1 {
-	border: 2px #eee solid;
+	border: 1px var(--Bblue) solid;
 	color: var(--Iingigo); /*(165, 42, 42) red brown from before */
 	text-align: center;
 	padding: 10px;
