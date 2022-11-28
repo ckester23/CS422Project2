@@ -70,7 +70,7 @@ h1 {
 
 
 .column {
-	float: left;
+	float:left; 
 	width: 33.3%;
 	margin-bottom: 16px;
 	padding: 0 8px;
@@ -79,6 +79,7 @@ h1 {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	margin: 8px;
+	border: 2px var(--Ggreen) solid;
 }
 
 .about-section {
@@ -108,8 +109,8 @@ h1 {
 	outline: 0;
 	display: inline-block;
 	padding: 8px;
-	color: var(--Ggreen);
-	background-color: #000;
+	color: white;
+	background-color: var(--Iingigo);
 	text-align: center;
 	cursor: pointer;
 	width: 100%;
@@ -117,7 +118,7 @@ h1 {
 
 
 .button:hover {
-	background-color: #555;
+	background-color: rgb(71, 73, 247);
 }
 
 /* for upload page class="uploadButton" */
@@ -130,8 +131,7 @@ h1 {
 	border-radius: 4px;
 	font-size: 13px;
 	height: 30px;
-	background-color: var(--Vviolet);
-	color: white;
+	background-color: var(--Iingigo);
 	padding: 0 20px;
  }
 
