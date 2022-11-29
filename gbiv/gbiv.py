@@ -1,32 +1,31 @@
 """
-Author:               Scotty Wallace & Cheyanne Kester
+Author:               Scotty Wallace, Cheyanne Kester
 Team:                 DUX D-Zine
 Class:                CS 422
 Professor:            Juan Flores, Kartikeya Sharma
 Date Created:         11/12/2022
-Date Last Modified:   11/20/2022
+Date Last Modified:   11/29/2022
 
 This creates a landing page and an image upload page for our app
 Initializes routes for all pages
+
+NOTE THAT NON ROUTED FUNCTIONS MUST BE DECLARED BEFORE ROUTED FUNCTIONS TO WORK
 """
+
 import os
-import sys
+import palette_finder as pf
+
 from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
+from static import tempPalettes as tp
 from werkzeug.utils import secure_filename
 
-import hslStringParser as hsp
-import palette_finder as pf
-import tempPalettes as tp
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 bp = Blueprint('gbiv', __name__)
 
-
-# from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
-# non routed functions first!
+"""---non-routed functions---"""
+# modified from https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
 
 # gets palette using lib ian wrote
 def get_palette(path):
@@ -34,6 +33,26 @@ def get_palette(path):
    # second index yields dom
    return pf.palette_generator(domColor[1])
 
+# ensures palette data will be presentable
+def parsePalette(httpStr):
+    colorList = []
+    color = ''
+    append = False
+
+    for s in httpStr:
+        # valid hex chars spaced by anything (assuming get 0-f only)
+        if s.isalnum():
+            color += s
+            append = True
+        elif(append):
+                colorList.append(str(color))
+                color = ''
+                # only append after first non-hex char
+                append = False
+
+    return colorList 
+
+"""---routed functions---"""
 # landing page
 @bp.route('/')
 def index():
@@ -49,15 +68,17 @@ def about():
 def colortheory():
     return render_template('colortheory.html')
 
+# sample palettes page
 @bp.route('/samplePalettes')
 def samplePalettes():
     palettes = tp.getPalettes()
     return render_template('samplePalettes.html', palList=palettes)
     
-# page displaying all palettes
+# page displaying all palettes generated from uploaded image
 @bp.route('/gbived/<palettes>')
 def gbived(palettes):
-    parsedPalettesList = hsp.parsePalette(palettes) #cheyanne
+    # ensuring valid hex colors
+    parsedPalettesList = parsePalette(palettes)
     return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
 
 # upload page
@@ -70,10 +91,13 @@ def file_upload():
     elif not(allowed_file(file.filename)):
         flash('invalid filetype')
     else: 
+        # makes sure filename cannot be used to attack website
         filename = secure_filename(file.filename)
-        userImage = file.filename
+
+        #saves file to web temp storage
         path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         file.save(path)
+
         return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
 
     return render_template('index.html', palettes=None)
