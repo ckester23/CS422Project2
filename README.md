@@ -29,4 +29,4 @@ Activate your virtual environment then run `python3 -m pip install -r requiremen
 
 ### running flask app
 
-From the main project directory run `flask --app gbiv --debug run`
+From the main project directory run `flask --app gbiv/gbivApp.py --debug run`

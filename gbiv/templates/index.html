@@ -24,60 +24,60 @@
 <div class="paletteParent">
 	<div>
 		{% for color in pList %}
-		
-			{% set count.value = count.value + 1 %}
-			{% set count2.value = count2.value + 1 %}
-			<div id="{{count.value}}" class="colorDisplays"></div>
-			
-			{% if count2.value%4 == 1 %}
-				<script>
-					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
-					background-color: #{{color}};
-					border-top: 2px black solid;
-					border-bottom: 1px black solid;
-					`
-				</script>
 
-			{% elif count2.value%4 == 0 %}
-				<script>
-					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
-					background-color: #{{color}};
-					border-bottom: 2px black solid;
-					margin-bottom: 10px;
-					`
-				</script>
+		{% set count.value = count.value + 1 %}
+		{% set count2.value = count2.value + 1 %}
+		<div id="{{count.value}}" class="colorDisplays"></div>
 
-			{% else %}
-				<script>
-					document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
-					background-color: #{{color}};
-					border-bottom: 1px black solid;
-					`
-				</script>
+		{% if count2.value%4 == 1 %}
+		<script>
+			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+		 background-color: #{{color}};
+		 border-top: 2px black solid;
+		 border-bottom: 1px black solid;
+		 `
+		</script>
 
-			{% endif %}
-		
+		{% elif count2.value%4 == 0 %}
+		<script>
+			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+		 background-color: #{{color}};
+		 border-bottom: 2px black solid;
+		 margin-bottom: 10px;
+		 `
+		</script>
+
+		{% else %}
+		<script>
+			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
+		 background-color: #{{color}};
+		 border-bottom: 1px black solid;
+		 `
+		</script>
+
+		{% endif %}
+
 		{% endfor %}
 	</div>
 
 	{% set count2 = namespace(value=0) %} 
 	<div>
 		{% for color in pList %}
-		
-			{% set count2.value = count2.value + 1 %}
 
-			{% if count2.value%4 == 0 %}
-			<p class="value" style="padding-bottom: 13px;">#{{color}}</p>
+		{% set count2.value = count2.value + 1 %}
 
-			{% else %}
-			<p class="value">#{{color}}</p>
+		{% if count2.value%4 == 0 %}
+		<p class="value" style="padding-bottom: 13px;">#{{color}}</p>
 
-			{% endif %}
-		
+		{% else %}
+		<p class="value">#{{color}}</p>
+
+		{% endif %}
+
 
 		{% endfor %}
 	</div> 
-	
+
 </div>
 
 <h4 style="text-align: center;"> Click the UPLOAD navigation tab to upload a different image </h4>
@@ -86,15 +86,15 @@
 
 <h1 style="margin-top: 10%;"> About GBIV </h1>
 <div style="text-align: center;">
-    <pre>
-    Design and color theory are everywhere from web development to fashion to interior design and architecture. No
-    existing site has the functionality of our application which provides a powerful tool for applying color theory to the real
-    world. We often have physical items such as paint, clothes, or furniture where we cannot simply check the hex code of
-    the dominant color. 
-    Our application combines this analysis of the color in terms of hex along with recommendations
-    for colors to combine it with based on color theory.
-    
-    </pre>
+	<pre>
+		Design and color theory are everywhere from web development to fashion to interior design and architecture. No
+		existing site has the functionality of our application which provides a powerful tool for applying color theory to the real
+		world. We often have physical items such as paint, clothes, or furniture where we cannot simply check the hex code of
+		the dominant color. 
+		Our application combines this analysis of the color in terms of hex along with recommendations
+		for colors to combine it with based on color theory.
+
+	</pre>
 </div>
 
 {% endblock %}

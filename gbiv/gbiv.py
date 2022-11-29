@@ -14,11 +14,10 @@ import sys
 from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from werkzeug.utils import secure_filename
 
-from . import hslStringParser as hsp
-from . import palette_finder as pf
-from . import tempPalettes as tp
+import hslStringParser as hsp
+import palette_finder as pf
+import tempPalettes as tp
 
-UPLOAD_FOLDER = current_app.config['UPLOAD_FOLDER'] 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 bp = Blueprint('gbiv', __name__)
@@ -73,7 +72,7 @@ def file_upload():
     else: 
         filename = secure_filename(file.filename)
         userImage = file.filename
-        path = os.path.join(UPLOAD_FOLDER + filename)
+        path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         file.save(path)
         return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
 
