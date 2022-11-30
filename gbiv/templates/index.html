@@ -15,8 +15,9 @@
 </div> 
 
 {% else %}
-<h4 style="text-align: center;"> Your Image (placeholder):</h4>
-<img src="{{ url_for('static', filename='logo_capture.PNG') }}" style="height: 25%; display: block; margin: auto; width: 25%; padding: 2.5%;" >
+<h4 style="text-align: center;"> Your Image {{t_file}} :</h4>
+<img src="{{ url_for('static', filename='/uploads/'+t_file) }}" style="height: 50%; display: block; margin: auto; width: 50%; padding: 2.5%;" >
+
 
 <h4 style="text-align: center;"> Generated Palettes:</h4>
 {% set count = namespace(value=0) %} <!--- for color id -->

@@ -20,6 +20,7 @@ from static import tempPalettes as tp
 from werkzeug.utils import secure_filename
 
 
+temp_path = None
 bp = Blueprint('gbiv', __name__)
 
 """---non-routed functions---"""
@@ -75,11 +76,12 @@ def samplePalettes():
     return render_template('samplePalettes.html', palList=palettes)
     
 # page displaying all palettes generated from uploaded image
-@bp.route('/gbived/<palettes>')
-def gbived(palettes):
+@bp.route('/gbived/<palettes> <image>')
+def gbived(palettes, image):
     # ensuring valid hex colors
+
     parsedPalettesList = parsePalette(palettes)
-    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList)  #image not working
+    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList, t_file=image)  #image not working
 
 # upload page
 # code is run after clicking submit button
@@ -98,6 +100,6 @@ def file_upload():
         path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         file.save(path)
 
-        return redirect(url_for('gbiv.gbived', palettes = get_palette(path))) 
+        return redirect(url_for('gbiv.gbived', palettes = get_palette(path), image=filename)) 
 
-    return render_template('index.html', palettes=None)
+    return render_template('index.html', palettes=None, image=None)
