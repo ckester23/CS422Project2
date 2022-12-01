@@ -6,28 +6,56 @@
 
     .customDiv{
         display: flex;
-        background: #8c52ff;
+        background: #d5b0f3;
         
         width: 100%;
-        height: 50px;
+        height: 75px;
         line-height: 30px;
         text-align: center;
     }
 
     .customP{
-        margin: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
         color: #f9f9f9;
+        text-decoration: none;
+        font-size: 1.25em;
+    }
+
+    .customP:hover {
+        color: #D3D3D3;
+    }
+
+
+
+    .link-div {
+        padding-left: 20px;
+        padding-top: 20px;
     }
 
     h2{
         margin: 10px;
     }
+
+
+    img {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+    }
+
+
+
 </style>
 
+
 <div class="customDiv">
-    <img src="{{ url_for('static', filename='logo_capture.PNG') }}">
-    <a class="action customP" href="{{ url_for('index') }}">UPLOAD</a>
-    <a class="action customP" href="{{ url_for('gbiv.about') }}">ABOUT US</a>
-    <a class="action customP" href="{{ url_for('gbiv.samplePalettes') }}">SAMPLE PALETTES</a>
-    <a class="action customP" href="{{ url_for('gbiv.colortheory') }}">COLOR THEORY</a>
+    <img class="logo-img" src="{{ url_for('static', filename='gbiv_logo.PNG') }}">
+    <div class="link-div">
+        <a class="action customP" href="{{ url_for('index') }}">UPLOAD</a>
+        <a class="action customP" href="{{ url_for('gbiv.about') }}">ABOUT US</a>
+        <a class="action customP" href="{{ url_for('gbiv.samplePalettes') }}">SAMPLE PALETTES</a>
+        <a class="action customP" href="{{ url_for('gbiv.colortheory') }}">COLOR THEORY</a>
+    </div>
+    
 </div> 
