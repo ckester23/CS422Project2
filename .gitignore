@@ -2,3 +2,4 @@
 node_modules
 gbiv/__pycache__
 *.json
+gbiv/static/uploads/*
