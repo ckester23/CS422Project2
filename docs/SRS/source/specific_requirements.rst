@@ -12,16 +12,10 @@ User Image Uploads (Input)
 The user will be able to upload an image to Gbiv in order to extract its dominant color. This is the most important input of the application because it allows users to access the main functionality which is to apply color theory to colors found in the physical world. The photo may be formatted as a .png or a .jpg file and will be restricted to a range of 0 to 99MB.
 
 
-Palette Filter Selection (Input)
-#################################
-
-Users will have the ability to filter what palettes are displayed on two separate pages of Gbiv. They can do this for generated palettes after they have uploaded an image, but also on the example palettes page. This input will have discrete and pre-defined choices which will be selected using principles of color theory. 
-
-
 Generated Palettes (Output)
 ###########################
 
-After uploading an image to be analyzed, our application will generate several palettes that contain the dominant color in the image. These palettes will be composed of 4 separate colors and users will have the option to change what palettes are displayed by selecting from provided filter tags. Along with the visual output of these four colors, the corresponding hex codes will also be available to end-users. The output will reach the user through our frontend by way of the website UI. Palettes will be displayed as rectangles divided into 4 horizontal bars each filled with one color from the generated palette. Users will be able to view the hex codes of the colors by hovering their mouse over the palette they are interested in.
+After uploading an image to be analyzed, our application will generate several palettes that contain the dominant color in the image. These palettes will be composed of 4 separate colors that are labeled with their individual hex codes. Along with the visual output of these four colors, the corresponding hex codes will also be available to end-users. The output will reach the user through our frontend by way of the website UI. Palettes will be displayed as rectangles divided into 4 horizontal bars each filled with one color from the generated palette. Users will be able to view the hex codes of the colors by hovering their mouse over the palette they are interested in.
 
 
 Related Colors (Output)
@@ -32,7 +26,6 @@ Similar to outputted palettes, after a user uploads an image Gbiv will calculate
 These outputs will come from the backend in a similar format as the palettes, but will be displayed on the website in a different fashion. Instead of a single block with several stripes of color, the related colors will be displayed as squares that are filled entirely with a single color. These squares will be grouped in a logical fashion based on color theory fundamentals and like the palettes, will display their hex codes when hovered over.
 
 
-
 Functions
 ----------
 
@@ -40,7 +33,7 @@ Functions
 Color Extractor
 ################
 
-This function is the first function that will be called when the user uploads an image. It will be a fairly straightforward function that will take an image as an input (either .jpg or .png) and output the most prominent color in the picture (represented as a hex string). One key component of this function is that it must output in the appropriate format. There are several ways to digitally represent colors and it is vital that we have an output that can be easily translated between different color formats.
+This function is the first function that will be called when the user uploads an image. It will be a fairly straightforward function that will take an image as an input (either .jpg or .png) and output the statistical mode pixel color in the picture (represented as a hex string). One key component of this function is that it must output in the appropriate format. There are several ways to digitally represent colors and it is vital that we have an output that can be easily translated between different color formats.
 
 Generate Palettes
 ###################
@@ -82,6 +75,6 @@ We plan to have performance of certain functions fall within defined bounds. Spe
 Software System Attributes 
 ---------------------------
 
-Due to the diverse backgrounds of the user base we are targeting, two key system attributes we plan to build into Gbiv are usability and portability. We will achieve usability by having an intuitive user interface and thorough documentation that guides users through using the app. We will achieve portability by having the application web-hosted which will allow anyone with a web browser to use Gbiv. Furthermore, we will be building the frontend using Bootstrap which allows for the possibility of a responsive site that will work on a variety of device sizes.
+Due to the diverse backgrounds of the user base we are targeting, two key system attributes we plan to build into Gbiv are usability and portability. We will achieve usability by having an intuitive user interface and thorough documentation that guides users through the app. Portability will be achieved by having the application web-hosted which will allow anyone with a web browser to use Gbiv. Furthermore, we will be building the frontend using Bootstrap which allows for the future possibility of a responsive site that will work on a variety of device sizes.
 
 A secondary system attribute that will be kept in mind during the design phase is aesthetics. Because our site is providing a service related to design, having a well-designed site adds to our credibility. This system attribute will be secondary to having an operational and fluid site, but still is important to consider for this particular project.
