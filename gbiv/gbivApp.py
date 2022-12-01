@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.secret_key = b'goducks'
 
 # creating upload folder
-upload_folder = "uploads/"
+upload_folder = "gbiv/static/uploads/"
 if not os.path.exists(upload_folder):
     os.mkdir(upload_folder)
 
