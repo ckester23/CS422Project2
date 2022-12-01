@@ -18,7 +18,6 @@
 <h4 style="text-align: center;"> Your Image {{t_file}} :</h4>
 <img src="{{ url_for('static', filename='/uploads/'+t_file) }}" style="height: 50%; display: block; margin: auto; width: 50%; padding: 2.5%;" >
 
-
 <h4 style="text-align: center;"> Generated Palettes:</h4>
 {% set count = namespace(value=0) %} <!--- for color id -->
 {% set count2 = namespace(value=0) %} <!--- for formatting -->
@@ -30,7 +29,7 @@
 		{% set count2.value = count2.value + 1 %}
 		<div id="{{count.value}}" class="colorDisplays"></div>
 
-		{% if count2.value%4 == 1 %}
+		{% if count2.value%4 == 1 %} <!--- if this color is first in palette-->
 		<script>
 			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
 		 background-color: #{{color}};
@@ -39,7 +38,7 @@
 		 `
 		</script>
 
-		{% elif count2.value%4 == 0 %}
+		{% elif count2.value%4 == 0 %} <!--- if this color is last in palette -->
 		<script>
 			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
 		 background-color: #{{color}};
@@ -48,7 +47,7 @@
 		 `
 		</script>
 
-		{% else %}
+		{% else %} <!--- else the color is neither -->
 		<script>
 			document.getElementById("{{count.value}}").style.cssText = `width: 150px; height: 50px;
 		 background-color: #{{color}};
