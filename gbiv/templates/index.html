@@ -23,16 +23,31 @@
 <h3 class="centerText"> (Hover Over Boxes for Corresponding Hex Codes)</h5>
 {% set count = namespace(value=0) %} <!--- for color id -->
 {% set count2 = namespace(value=0) %} <!--- for formatting -->
+{% set rel_ind = namespace(value=0) %}
 <div class="paletteParent">
 	<div class="paletteUncle">
-		{% for color in pList %}
-		{% if ((color == "Monochromatic") or (color == "Analogous") or (color == "Tetradic"))%}
+		{% for color in pList%}
+		{% if color == "relcolors"%}
+			{% set rel_ind.value = 1 %}
+		{% elif ((color == "Monochromatic") or (color == "Analogous") or (color == "Tetradic"))%}
 			<h2>{{color}}</h2>
 			{% set count.value = count.value + 1 %}
+		{% elif (color == "Complimentary")%}
+			<h2 class="rel_color_title">{{color}}</h2>
+			{% set count.value = count.value + 1 %}
+		{% elif rel_ind.value == 1 %}
+			<div id="{{count.value}}" class="rel_color">#{{color}}</div>
+			<script>
+				document.getElementById("{{count.value}}").style.cssText = `
+		 		background-color: #{{color}};
+		 		`
+			</script>
+			{% set count.value = count.value + 1 %}
+			{% set count2.value = count2.value + 1 %}
 		{% else %}
 			{% set count.value = count.value + 1 %}
 			{% set count2.value = count2.value + 1 %}
-			<div id="{{count.value}}" class="colorDisplays" style="">#{{color}}</div>
+			<div id="{{count.value}}" class="colorDisplays">#{{color}}</div>
 
 			{% if count2.value%4 == 1 %}
 			<script>

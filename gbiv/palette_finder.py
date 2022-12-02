@@ -4,7 +4,7 @@ Team:                 DUX D-Zine
 Class:                CS 422
 Professor:            Juan Flores, Kartikeya Sharma
 Date Created:         11/09/2022
-Date Last Modified:   12/01/2022
+Date Last Modified:   12/02/2022
 
 This is a python script for extracting the dominant color from an
 image and creating a palettes. This script was written for the purpose
@@ -199,6 +199,34 @@ def rectangular_right(hls):
     return tup
 
 
+def rectangular_left(hls):
+    """
+    This function generates a palette that is has a rectangular tetradic color
+    palette. This means it has the base color, the color that is 60 degrees
+    to the right on the color wheel,  the color that is 180 degrees to the
+    right on the color wheel, and the color that is 240 degrees to the right
+    on the color wheel.
+
+    :inputs:  This function takes a single input which is a tuple of length 3
+              which describes the color in hls format with float values
+              ranging from 0.0 to 1.0
+    :returns: This function returns a tuple of strings, each representing a 
+              color in the generated palette, of which there are 4.
+    """
+
+
+    # Focusing on hue
+    hue = hls[0]
+
+    # Create palette
+    color2 = (hue-(1/6),hls[1], hls[2])
+    color3 = (hue-(1/3), hls[1], hls[2])
+    color4 = (hue-(1/6), hls[1], hls[2])
+
+    # Convert hls values to hexadecimal and format as tuple
+    tup = (hls_to_hex(hls), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
+
+    return tup
 
 ## Functions NOT Integrated Yet ##
 
@@ -233,67 +261,23 @@ def get_analogous_centered(dom):
     return (analogous[0], analogous[1], analogous[2], analogous[3])
 
 
-def rectangular_left(hls):
-    """
-    This function generates a palette that is has a rectangular tetradic color
-    palette. This means it has the base color, the color that is 60 degrees
-    to the right on the color wheel,  the color that is 180 degrees to the
-    right on the color wheel, and the color that is 240 degrees to the right
-    on the color wheel.
-
-    :inputs:  This function takes a single input which is a tuple of length 3
-              which describes the color in hls format with float values
-              ranging from 0.0 to 1.0
-    :returns: This function returns a tuple of strings, each representing a 
-              color in the generated palette, of which there are 4.
-    """
-
-
-    # Focusing on hue
-    hue = hls[0]
-
-    # Create palette
-    color2 = (hue-(1/6),hls[1], hls[2])
-    color3 = (hue-(1/3), hls[1], hls[2])
-    color4 = (hue-(1/6), hls[1], hls[2])
-
-    # Convert hls values to hexadecimal and format as tuple
-    tup = (hls_to_hex(hls), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
-
-    return tup
-
-
 # Complimentary Palettes
 
 def get_complimentary(dom):
     """
     This function returns an array of 3 complimentary colors given a dominant color.
     """
-    rgb = rgb_to_percents(dom)
-    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
 
-    complimentary = []
-
-    color1 = ((dom_hls[0]+.5)%1, dom_hls[1], dom_hls[2])
+    color1 = ((dom[0]+.5)%1, dom[1], dom[2])
     color2 = ((color1[0]-.025)%1, color1[1], color1[2])
-    color3 = (color1[0]-.05, color1[1], color1[2])
-    color4 = (color1[0]+.025, color1[1], color1[2])
-    color5 = (color1[0]+.05, color1[1], color1[2])
+    color3 = ((color1[0]-.05)%1, color1[1], color1[2])
+    color4 = ((color1[0]+.025)%1, color1[1], color1[2])
+    color5 = ((color1[0]+.05)%1, color1[1], color1[2])
 
-    color1 = hls_to_hex(color1)
-    color2 = hls_to_hex(color2)
-    color3 = hls_to_hex(color3)
-    color4 = hls_to_hex(color4)
-    color5 = hls_to_hex(color5)
+    tup = (hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4), hls_to_hex(color5))
 
-    complimentary.append(color1)
-    complimentary.append(color2)
-    complimentary.append(color3)
-    complimentary.append(color4)
-    complimentary.append(color5)
-
-    
-    return (complimentary[0], complimentary[1], complimentary[2], complimentary[3], complimentary[4])
+    #tup = ("#FF0000", "#FF0000", "#FF0000", "#FF0000", "#FF0000")
+    return tup
 
 
 
@@ -343,6 +327,22 @@ def palette_generator(dom):
     rect_l = rectangular_left(dom_hls)
 
     return ("Monochromatic", mono_u, mono_d, "Analogous", anlg_r, anlg_l, "Tetradic", rect_r, rect_l)
+
+
+def related_colors_generator(dom):
+    """
+    This function generates a palette of 4 colors from a single dominant color
+    that has 
+    """
+
+    # Converting rgb to hls tuple
+    rgb = rgb_to_percents(dom)
+    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
+
+    # Generating monochromatic palettes
+    compl = get_complimentary(dom_hls)
+
+    return ("relcolors", "Complimentary", compl)
 
 
 
