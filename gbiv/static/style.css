@@ -38,7 +38,7 @@ body {
 .paletteDisplay {
 	/* for displaying a single palette */
 	width: 50%;
-	display: flex;
+	display: inline;
 }
 
 .value {
@@ -54,6 +54,16 @@ body {
 	border-right: 2px black solid;
 	border-left: 2px black solid;
 	margin-right: 4px;
+	margin-left: 24px;
+	line-height: 35px;
+	text-align: center;
+	color: rgba(105, 105, 105, 0);
+}
+
+.colorDisplays:hover {
+	opacity: 0.5;
+	text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+	color: black;
 }
 
 .colorDisplaysTop {
@@ -70,6 +80,10 @@ body {
 	border-right: 2px black solid;
 	border-left: 2px black solid;
 	margin-right: 4px;
+}
+
+.paletteUncle {
+	text-align: center;
 }
 
 /* end sample palettes page*/

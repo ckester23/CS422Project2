@@ -342,7 +342,7 @@ def palette_generator(dom):
     rect_r = rectangular_right(dom_hls)
     rect_l = rectangular_left(dom_hls)
 
-    return (mono_u, mono_d, anlg_r, anlg_l, rect_r, rect_l)
+    return ("Monochromatic", mono_u, mono_d, "Analogous", anlg_r, anlg_l, "Tetradic", rect_r, rect_l)
 
 
 
