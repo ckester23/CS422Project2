@@ -4,7 +4,7 @@ Team:                 DUX D-Zine
 Class:                CS 422
 Professor:            Juan Flores, Kartikeya Sharma
 Date Created:         11/12/2022
-Date Last Modified:   11/29/2022
+Date Last Modified:   12/02/2022
 
 This creates a landing page and an image upload page for our app
 Initializes routes for all pages
@@ -33,6 +33,12 @@ def get_palette(path):
    domColor = pf.color_extractor(path)
    # second index yields dom
    return pf.palette_generator(domColor[1])
+
+# gets related colors using lib ian wrote
+def get_relatedcolor(path):
+   domColor = pf.color_extractor(path)
+   # second index yields dom
+   return pf.related_colors_generator(domColor[1])
 
 # ensures palette data will be presentable
 def parsePalette(httpStr):
@@ -76,12 +82,12 @@ def samplePalettes():
     return render_template('samplePalettes.html', palList=palettes)
     
 # page displaying all palettes generated from uploaded image
-@bp.route('/gbived/<palettes> <image>')
-def gbived(palettes, image):
+@bp.route('/gbived/<palettes> <relcolors> <image>')
+def gbived(palettes, relcolors, image):
     # ensuring valid hex colors
 
     parsedPalettesList = parsePalette(palettes)
-    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList, t_file=image)  #image not working
+    return render_template('index.html', palettes=str(palettes), pList=parsedPalettesList, t_file=image)
 
 # upload page
 # code is run after clicking submit button
@@ -100,6 +106,6 @@ def file_upload():
         path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         file.save(path)
 
-        return redirect(url_for('gbiv.gbived', palettes = get_palette(path), image=filename)) 
+        return redirect(url_for('gbiv.gbived', palettes = get_palette(path), relcolors = get_relatedcolor(path), image=filename)) 
 
     return render_template('index.html', palettes=None, image=None)
