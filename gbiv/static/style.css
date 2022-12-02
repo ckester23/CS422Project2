@@ -28,7 +28,7 @@ body {
 
 
 .sub-title {
-	padding-left: 5%;
+	/* padding-left: 5%; */
 	font-size: 2em;
 }
 
@@ -219,4 +219,19 @@ body {
 	width: 75%;
  }
 
+ /* about */
+.person {
+	border: 2px var(--Ggreen) solid;
+	width: 50%;
+	height: 45%;
+	margin: 10px;
+}
+
+.aboutPeople {
+	margin: auto;
+	width: 75%;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
 
