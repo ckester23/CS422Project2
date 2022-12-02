@@ -15,6 +15,14 @@ In this directory, you will find source files and a pdf build of the system requ
 
 In this folder we have the reStructuredText files that were used to generate the system design specification as well as a pdf version of the document. Here we have a more comprehensive outline of the software architecture as well as design details for specific modules.
 
+## user_docs
+
+This directory contains the documentation meant for end users of Gbiv. In here, you will find pdf and html versions of the document for greater accessibility. This documentation guides end-users through using Gbiv and gives a little more information about what is going on behind the scenes.
+
+## developers_manual
+
+This subsection of the docs folder contains documentation that is relevant for developers on the Gbiv project. Specifically here we provide an overview of the implementation of the system as well as style guides and possible areas of improvement for specific modules. Like the user docs, this folder contains both a pdf and html build of this document.
+
 
 ## Tech Used and Acknowledgments
 
