@@ -193,4 +193,19 @@ body {
 	background-color: black;
  }
 
+ /* index, samplePalettes, about, colortheory*/
+
+ .centerText {
+	text-align: center;
+ }
+
+ /*samplePalettes*/
+
+ .paletteListContainer {
+	display: flex; 
+	justify-content: center;
+	margin: auto;
+	width: 75%;
+ }
+
 
