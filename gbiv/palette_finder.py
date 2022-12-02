@@ -236,29 +236,15 @@ def get_analogous_centered(dom):
     and two to the right of the dominant color.
     ex: apple red would return a magenta and violet shade as well as a red-orange and pumpkin orange
     """
-    rgb = rgb_to_percents(dom)
-    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
 
-    analogous = []
+    color1 = ((dom[0]-.025), dom[1], dom[2])
+    color2 = ((dom[0]-.05), dom[1], dom[2])
+    color3 = ((dom[0]+.025), dom[1], dom[2])
+    color4 = ((dom[0]+.05), dom[1], dom[2])
 
-    color1 = ((dom_hls[0]-.025), dom_hls[1], dom_hls[2])
-    color2 = ((dom_hls[0]-.05), dom_hls[1], dom_hls[2])
-    color3 = ((dom_hls[0]+.025), dom_hls[1], dom_hls[2])
-    color4 = ((dom_hls[0]+.05), dom_hls[1], dom_hls[2])
+    tup = (hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
 
-    color1 = hls_to_hex(color1)
-    color2 = hls_to_hex(color2)
-    color3 = hls_to_hex(color3)
-    color4 = hls_to_hex(color4)
-
-    analogous.append(color1)
-    analogous.append(color2)
-    analogous.append(color3)
-    analogous.append(color4)
-
-
-
-    return (analogous[0], analogous[1], analogous[2], analogous[3])
+    return tup
 
 
 # Complimentary Palettes
@@ -276,7 +262,6 @@ def get_complimentary(dom):
 
     tup = (hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4), hls_to_hex(color5))
 
-    #tup = ("#FF0000", "#FF0000", "#FF0000", "#FF0000", "#FF0000")
     return tup
 
 
@@ -341,8 +326,9 @@ def related_colors_generator(dom):
 
     # Generating monochromatic palettes
     compl = get_complimentary(dom_hls)
+    analg = get_analogous_centered(dom_hls)
 
-    return ("relcolors", "Complimentary", compl)
+    return ("relcolors", "Complimentary", compl, "Shades", analg)
 
 
 

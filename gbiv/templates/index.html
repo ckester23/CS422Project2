@@ -29,14 +29,16 @@
 		{% for color in pList%}
 		{% if color == "relcolors"%}
 			{% set rel_ind.value = 1 %}
+			<h2 class="centerText relcolors_sec"> Related Colors</h2>
+			<h3 class="centerText"> (Hover Over Boxes for Corresponding Hex Codes)</h5>
 		{% elif ((color == "Monochromatic") or (color == "Analogous") or (color == "Tetradic"))%}
 			<h2>{{color}}</h2>
 			{% set count.value = count.value + 1 %}
-		{% elif (color == "Complimentary")%}
+		{% elif (color == "Complimentary") or (color == "Shades")%}
 			<h2 class="rel_color_title">{{color}}</h2>
 			{% set count.value = count.value + 1 %}
 		{% elif rel_ind.value == 1 %}
-			<div id="{{count.value}}" class="rel_color">#{{color}}</div>
+			<div id="{{count.value}}" class="rel_color"><p class="centerText relcolor-hex">#{{color}}</p></div>
 			<script>
 				document.getElementById("{{count.value}}").style.cssText = `
 		 		background-color: #{{color}};
