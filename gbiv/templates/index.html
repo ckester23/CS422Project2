@@ -19,8 +19,8 @@
 <img src="{{ url_for('static', filename='/uploads/'+t_file) }}" style="height: 50%; display: block; margin: auto; width: 50%; padding: 2.5%;" >
 
 
-<h2 style="text-align: center;"> Your Palettes</h2>
-<h3 style="text-align: center;"> (Hover Over Boxes for Corresponding Hex Codes)</h5>
+<h2 class="centerText"> Your Palettes</h2>
+<h3 class="centerText"> (Hover Over Boxes for Corresponding Hex Codes)</h5>
 {% set count = namespace(value=0) %} <!--- for color id -->
 {% set count2 = namespace(value=0) %} <!--- for formatting -->
 <div class="paletteParent">
@@ -91,7 +91,7 @@
 
 </div>
 
-<h4 style="text-align: center;"> Click the UPLOAD navigation tab to upload a different image </h4>
+<h4 class="centerText"> Click the UPLOAD navigation tab to upload a different image </h4>
 {% endif %}
 
 

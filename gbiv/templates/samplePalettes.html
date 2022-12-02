@@ -5,10 +5,11 @@
 
 {% block content %}
 
-<h3 style="text-align: center;"> Here are some sample palettes for you to browse <br> (Hover Over Boxes for Corresponding Hex Codes) </h3>
-<h4 style="text-align: center;"> New palettes are added frequently, </h4>
+<h3 class="centerText"> Here are some sample palettes for you to browse </h3>
+<h4 class="centerText">(Hover Over Boxes for Corresponding Hex Codes) </h4>
+<h4 class="centerText"> New palettes are added frequently </h4>
 
-<div style="display: flex; justify-content: center;margin: auto;width: 75%;">
+<div class="paletteListContainer">
 <div style="margin-right: 50px;">
 	{% set count = namespace(value=0) %} <!--- for color id -->
 	{% set count2 = namespace(value=0) %} <!--- for formatting -->
