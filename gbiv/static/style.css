@@ -100,6 +100,26 @@ body {
 	text-align: center;
 }
 
+.rel_color {
+	width: 150px;
+	height: 150px;
+	color: rgba(105, 105, 105, 0);
+	border: 2px black solid;
+	line-height: 150px;
+	margin-left: 24px;
+	margin-bottom: 10px;
+}
+
+.rel_color:hover {
+	opacity: 0.5;
+	text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+	color: black;
+	
+}
+
+.rel_color_title {
+}
+
 /* end sample palettes page*/
 
 
