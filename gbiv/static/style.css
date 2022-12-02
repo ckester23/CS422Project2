@@ -18,6 +18,20 @@ body {
 	font-family: system-ui;
 }
 
+/* Styles For Entire Page */
+
+.expl-txt {
+	padding-left: 10%;
+	padding-right: 10%;
+	font-size: 1.1em;
+}
+
+
+.sub-title {
+	padding-left: 5%;
+	font-size: 2em;
+}
+
 /* Upload page */
 .paletteParent {
 	display: flex;
@@ -158,3 +172,5 @@ body {
  .uploadButton.hover {
 	background-color: black;
  }
+
+
