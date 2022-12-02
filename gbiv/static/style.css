@@ -67,11 +67,10 @@ body {
 	height: 30px;
 	border-right: 2px black solid;
 	border-left: 2px black solid;
-	margin-right: 4px;
-	margin-left: 24px;
 	line-height: 35px;
 	text-align: center;
 	color: rgba(105, 105, 105, 0);
+	margin-left: 315px;
 }
 
 .colorDisplays:hover {
@@ -106,8 +105,11 @@ body {
 	color: rgba(105, 105, 105, 0);
 	border: 2px black solid;
 	line-height: 150px;
-	margin-left: 24px;
 	margin-bottom: 10px;
+	position: static;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
 }
 
 .rel_color:hover {
@@ -119,6 +121,15 @@ body {
 
 .rel_color_title {
 }
+
+.relcolors_sec {
+	padding-top: 50px;
+}
+
+.relcolor-hex {
+	padding-left: 42px;
+}
+
 
 /* end sample palettes page*/
 
