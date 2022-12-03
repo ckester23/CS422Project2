@@ -228,7 +228,66 @@ def rectangular_left(hls):
 
     return tup
 
-## Functions NOT Integrated Yet ##
+
+def getCooler(dom):
+   """
+   This function generates a palette that is has darker shades of slightly cooler colors.
+   :inputs:  This function takes a single input which is a tuple of length 3
+             which describes the color in hls format with float values
+             ranging from 0.0 to 1.0
+   :returns: This function returns a tuple of strings, each representing a
+             color in the generated palette, of which there are 4.
+   """
+
+
+   # luminosity
+   lum = dom[1]
+   decrement = (lum / 3)
+
+   # Create palette
+   color1 = ((dom[0] + .5), (lum - decrement), dom[2])
+   color2 = ((dom[0] + .6), (lum - (2 * decrement)), dom[2])
+   color3 = ((dom[0] + .3), (lum - (2.5 * decrement)), dom[2])
+
+
+   # Convert hls values to hexadecimal and format as tuple
+   cooler = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
+
+
+   return cooler
+
+
+def getWarmth(dom):
+   """
+   This function generates a palette that is has lighter shades of slightly warmer colors.
+   :inputs:  This function takes a single input which is a tuple of length 3
+             which describes the color in hls format with float values
+             ranging from 0.0 to 1.0
+   :returns: This function returns a tuple of strings, each representing a
+             color in the generated palette, of which there are 4.
+   """
+
+   # luminosity
+   lum = dom[1]
+   decrement = (lum / 7)
+
+
+   # Create palette
+   color1 = ((dom[0] + .8), (lum + (2 * decrement)), dom[2])
+   color2 = ((dom[0] + .95), (lum + (decrement)), dom[2])
+   color3 = ((dom[0] + .1), (lum + (decrement)), dom[2])
+
+
+   # Convert hls values to hexadecimal and format as tuple
+   warmth = (hls_to_hex(dom), hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3))
+
+
+   return warmth
+
+
+## RELATED COLOR FUNCTIONS
+
+# Analogous colors
 
 def get_analogous_centered(dom):
     """
@@ -236,32 +295,18 @@ def get_analogous_centered(dom):
     and two to the right of the dominant color.
     ex: apple red would return a magenta and violet shade as well as a red-orange and pumpkin orange
     """
-    rgb = rgb_to_percents(dom)
-    dom_hls = rgb_to_hls(rgb[0], rgb[1], rgb[2])
 
-    analogous = []
+    color1 = ((dom[0]-.025), dom[1], dom[2])
+    color2 = ((dom[0]-.05), dom[1], dom[2])
+    color3 = ((dom[0]+.025), dom[1], dom[2])
+    color4 = ((dom[0]+.05), dom[1], dom[2])
 
-    color1 = ((dom_hls[0]-.025), dom_hls[1], dom_hls[2])
-    color2 = ((dom_hls[0]-.05), dom_hls[1], dom_hls[2])
-    color3 = ((dom_hls[0]+.025), dom_hls[1], dom_hls[2])
-    color4 = ((dom_hls[0]+.05), dom_hls[1], dom_hls[2])
+    tup = (hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4))
 
-    color1 = hls_to_hex(color1)
-    color2 = hls_to_hex(color2)
-    color3 = hls_to_hex(color3)
-    color4 = hls_to_hex(color4)
-
-    analogous.append(color1)
-    analogous.append(color2)
-    analogous.append(color3)
-    analogous.append(color4)
+    return tup
 
 
-
-    return (analogous[0], analogous[1], analogous[2], analogous[3])
-
-
-# Complimentary Palettes
+# Complimentary Colors
 
 def get_complimentary(dom):
     """
@@ -276,7 +321,6 @@ def get_complimentary(dom):
 
     tup = (hls_to_hex(color1), hls_to_hex(color2), hls_to_hex(color3), hls_to_hex(color4), hls_to_hex(color5))
 
-    #tup = ("#FF0000", "#FF0000", "#FF0000", "#FF0000", "#FF0000")
     return tup
 
 
@@ -325,14 +369,16 @@ def palette_generator(dom):
     anlg_l = get_analogous_left(dom_hls)
     rect_r = rectangular_right(dom_hls)
     rect_l = rectangular_left(dom_hls)
+    cooler = getCooler(dom_hls)
+    warmer = getWarmth(dom_hls)
 
-    return ("Monochromatic", mono_u, mono_d, "Analogous", anlg_r, anlg_l, "Tetradic", rect_r, rect_l)
+
+    return ("Monochromatic", mono_u, mono_d, "Analogous", anlg_r, anlg_l, "Tetradic", rect_r, rect_l, "Miscellaneous", cooler, warmer)
 
 
 def related_colors_generator(dom):
     """
-    This function generates a palette of 4 colors from a single dominant color
-    that has 
+    
     """
 
     # Converting rgb to hls tuple
@@ -341,8 +387,9 @@ def related_colors_generator(dom):
 
     # Generating monochromatic palettes
     compl = get_complimentary(dom_hls)
+    analg = get_analogous_centered(dom_hls)
 
-    return ("relcolors", "Complimentary", compl)
+    return ("relcolors", "Complimentary", compl, "Shades", analg)
 
 
 

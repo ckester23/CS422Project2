@@ -62,16 +62,33 @@ body {
 	vertical-align: center;
 }
 
+.colorDisplays-samp {
+	width: 75px; 
+	height: 30px;
+	border-right: 2px black solid;
+	border-left: 2px black solid;
+	line-height: 35px;
+	text-align: center;
+	color: rgba(105, 105, 105, 0);
+	margin-left: 24px;
+}
+
+.colorDisplays-samp:hover {
+	opacity: 0.5;
+	text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+	color: black;
+}
+
+
 .colorDisplays {
 	width: 75px; 
 	height: 30px;
 	border-right: 2px black solid;
 	border-left: 2px black solid;
-	margin-right: 4px;
-	margin-left: 24px;
 	line-height: 35px;
 	text-align: center;
 	color: rgba(105, 105, 105, 0);
+	margin-left: 315px;
 }
 
 .colorDisplays:hover {
@@ -79,6 +96,9 @@ body {
 	text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
 	color: black;
 }
+
+
+
 
 .colorDisplaysTop {
 	border-top: 2px black solid;
@@ -106,8 +126,11 @@ body {
 	color: rgba(105, 105, 105, 0);
 	border: 2px black solid;
 	line-height: 150px;
-	margin-left: 24px;
 	margin-bottom: 10px;
+	position: static;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
 }
 
 .rel_color:hover {
@@ -119,6 +142,15 @@ body {
 
 .rel_color_title {
 }
+
+.relcolors_sec {
+	padding-top: 50px;
+}
+
+.relcolor-hex {
+	padding-left: 42px;
+}
+
 
 /* end sample palettes page*/
 
