@@ -1,7 +1,7 @@
 # [Gbiv](http://skumperdump.pythonanywhere.com/)
 
 
-Gbiv is a web application with the goal of making color theory more accessible to the world and inspiring the designer in all of us. 
+Gbiv is a web application with the goal of making color theory more accessible to the world and inspiring the designer in all of us. The title above is clickable and leads to our website.
 
 
 ## Contents of Repository
