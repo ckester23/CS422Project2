@@ -8,12 +8,28 @@
 {% block content %}
 {% if palettes == None %}
 <div style="text-align: center;">
-	<form style="display: inline-block;" method="POST" enctype="multipart/form-data">
+	<form style="display: inline-block; padding-bottom: 50px;" method="POST" enctype="multipart/form-data">
 		<input type=file name=file>
 		<input type=submit value=Upload>
 	</form>
-
 	<h1>Welcome to Gbiv!</h1>
+	<p class="expl-txt">
+		Gbiv is a web application created for the designer in all of us. Design is everywhere--from the clothes you put on in the morning to the room you wake up in--and an essential part of design is color. Our application provides a powerful tool for utilizing color theory when making design decisions. 
+	</p>
+
+	<p class="expl-txt">
+		Have you ever been painting your house and needed to match a new color to the existing paint? Do you ever find yourself wondering what color of pants match with your new sweater? Or maybe you are at the furniture store and can't figure out if a couch would "fit" with your living room carpet? These are all examples of situations where Gbiv can save the day. Simply upload a photo above to try it out for yourself!
+	</p>
+
+	<h1>User Documentation</h1>
+	<p class="expl-txt">
+		Below you can find the user documentation in both pdf and html form:
+	</p>
+	<form style="display: inline-block; padding-bottom: 50px;" method="POST" enctype="multipart/form-data">
+		<a href="static/userdocs_html/index.html" class="button">HTML</a>
+		<a href="static/user_docs.pdf" class="button">PDF</a>
+	</form>
+
 </div> 
 
 {% else %}
