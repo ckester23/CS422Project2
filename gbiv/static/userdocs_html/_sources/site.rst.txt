@@ -1,0 +1,44 @@
+.. _site:
+
+The Site
+===============
+
+The website at which users can access Gbiv is divided into four pages which all link to each other through a shared navbar at the top of each page. When the user first visits the URL, they will find themselves on the "Main Page" (see :numref:`main-pg` for more details). From there, they can simply click the title of the page they wish to go to from the list in the top left corner.
+
+
+.. _main-pg:
+
+Main Page
+-----------
+
+Here is where users will start when the visit Gbiv. This page provides the interface to use the application's primary function which is uploading an image for color analysis and suggestions. At the top of the main page you can see bold text prompting you to upload an image. For more information about how to format image inputs see :numref:`input`.
+
+Once the user has uploaded an image, there will be a short period in which Gbiv will analyze the colors. After analysis is complete, users will be taken to a new page where their image along with suggested palettes are displayed.  Continue scrolling down past the palettes and you will find several individual related colors that are separated into different categories.
+
+
+.. _ex-palettes-pg:
+
+Example Palettes Page
+-----------------------
+
+On this page several example palettes are shown with the intention of inspiring design decisions and providing pre-made color schemes for those without a place to start. 
+
+The palettes are displayed visually in the form of blocks divided into 4 different colors. By hovering over these blocks you can find the hex code for each color in the set.
+
+.. _color-theory-pg:
+
+Color Theory Page
+--------------------
+
+If you are wanting to learn more about color theory this is the place for you! Here you will find a brief introduction to the subject and further details on the principles used in creating Gbiv's recommender system.
+
+
+.. _about-us-pg:
+
+About Us Page
+---------------
+
+Last but not least, the "About Us" page gives some background on the DUX D-Zine team and the Gbiv project in particular. If you wish to get in touch with us or have any questions about the application, you can also find contact information here.
+
+
+
