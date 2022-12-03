@@ -12,6 +12,8 @@
 		<input type=file name=file>
 		<input type=submit value=Upload>
 	</form>
+
+	<h1>Welcome to Gbiv!</h1>
 </div> 
 
 {% else %}
@@ -31,7 +33,7 @@
 			{% set rel_ind.value = 1 %}
 			<h2 class="centerText relcolors_sec"> Related Colors</h2>
 			<h3 class="centerText"> (Hover Over Boxes for Corresponding Hex Codes)</h5>
-		{% elif ((color == "Monochromatic") or (color == "Analogous") or (color == "Tetradic"))%}
+		{% elif ((color == "Monochromatic") or (color == "Analogous") or (color == "Tetradic") or (color == "Miscellaneous")) %}
 			<h2>{{color}}</h2>
 			{% set count.value = count.value + 1 %}
 		{% elif (color == "Complimentary") or (color == "Shades")%}
@@ -107,6 +109,8 @@
 	</div>  -->
 
 </div>
+
+
 
 <h4 class="centerText"> Click the UPLOAD navigation tab to upload a different image </h4>
 {% endif %}
