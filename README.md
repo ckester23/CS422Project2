@@ -9,7 +9,7 @@ Gbiv is a web application with the goal of making color theory more accessible t
 
 ### docs folder
 
-This folder contains the documentation for the Gbiv application including the proposal, the SRS, the SDS, user docs, and developer's manual.
+This folder contains the documentation for the Gbiv application including the proposal, the SRS, the SDS, user docs, and developer's manual. It also contains our project outline.
 
 ### gbiv folder
 
