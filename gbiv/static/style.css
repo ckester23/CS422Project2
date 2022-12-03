@@ -199,7 +199,13 @@ body {
 	background-color: var(--Iingigo);
 	text-align: center;
 	cursor: pointer;
-	width: 100%;
+	width: 200px;
+
+	text-decoration: none;
+	margin-bottom: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 10px
 }
 
 
